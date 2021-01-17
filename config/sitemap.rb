@@ -1,12 +1,12 @@
 require 'aws-sdk-s3'
 SitemapGenerator::Sitemap.compress = false
 # Your website's host name
-SitemapGenerator::Sitemap.default_host = "https://www.corsego.com"
+SitemapGenerator::Sitemap.default_host = "https://www.Islam4kids.org"
 # The remote host where your sitemaps will be hosted
-SitemapGenerator::Sitemap.sitemaps_host = "https://corsego-public.s3.eu-central-1.amazonaws.com/"
+SitemapGenerator::Sitemap.sitemaps_host = "https://Islam4Kids-public.s3.eu-central-1.amazonaws.com/"
 
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
-  "corsego-public",
+  "Islam4Kids-public",
   aws_access_key_id: Rails.application.credentials.dig(:awss3, :access_key_id),
   aws_secret_access_key: Rails.application.credentials.dig(:awss3, :secret_access_key),
   aws_region: "eu-central-1"

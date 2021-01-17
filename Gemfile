@@ -35,7 +35,7 @@ gem "haml-rails", "~> 2.0" # HTML abstraction markup language
 # gem 'font-awesome-sass', '~> 5.12.0' #add icons for styling #installed via yarn withot gem
 gem "simple_form" # creating forms made easier
 gem "faker" # fake data for seeds.rb
-gem "devise" # authentication as a User
+gem 'devise', :git => "https://github.com/heartcombo/devise.git", ref: '8bb358cf80a632d3232c3f548ce7b95fd94b6eb2' # authentication as a User
 gem "friendly_id", "~> 5.2.4" # nice URLs and hide IDs
 gem "ransack" # filter and sort data
 gem "public_activity" # see all activity in the app
@@ -50,7 +50,7 @@ gem "ranked-model" # give serial/index numbers to items in a list
 gem "aws-sdk-s3", require: false # save images and files in production
 gem "active_storage_validations" # validate image and file uploads
 gem "image_processing" # sudo apt install imagemagick
-gem "recaptcha" # for new user registration
+# gem "recaptcha" # for new user registration
 gem "wicked_pdf" # PDF for Ruby on Rails
 gem "wkhtmltopdf-binary", group: :development
 gem "wkhtmltopdf-heroku", group: :production
@@ -59,5 +59,5 @@ gem "omniauth-google-oauth2" # sign in with google
 gem "omniauth-github", github: "omniauth/omniauth-github", branch: "master"
 gem "omniauth-facebook" # sign in with facebook
 gem "cocoon" # nested forms
-gem "stripe" # accept payments 
+gem "stripe" # accept payments
 gem 'sitemap_generator' # SEO and webmasters

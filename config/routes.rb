@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "terms", to: "static_pages#terms"
   get "about", to: "static_pages#about"
 
-  get '/sitemap.xml', to: redirect("https://corsego-public.s3.eu-central-1.amazonaws.com/sitemap.xml")
+  get '/sitemap.xml', to: redirect("https://Islam4Kids-public.s3.eu-central-1.amazonaws.com/sitemap.xml")
 
   resources :enrollments do
     get :teaching, on: :collection

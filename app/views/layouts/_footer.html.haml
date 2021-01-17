@@ -3,28 +3,20 @@
     %br/
     .row
       .col-lg-4
-        = link_to 'Corsego', root_path, class: "#{'active font-weight-bold' if current_page?(root_path)}"
+        = link_to 'Islam4Kids', root_path, class: "#{'active font-weight-bold' if current_page?(root_path)}"
         ©
         \#{Time.now.year}
         %br/
         = link_to t('navigation.home'), root_path, class: "#{'active font-weight-bold' if current_page?(root_path)}"
         %br/
-        = mail_to 'hello@corsego.com' do
+        = mail_to 'inspirebyexample0@gmail.com' do
           .fa.fa-envelope
-        = link_to "https://twitter.com/yaro_the_slav", target: :_blank do
-          .fab.fa-twitter
-        = link_to "https://instagram.com/corsego", target: :_blank do
+        = link_to "https://instagram.com/Islam4Kids", target: :_blank do
           .fab.fa-instagram
-        = link_to "https://github.com/yshmarov", target: :_blank do
-          .fab.fa-github
         .row
-        /%script{:src => "https://platform.linkedin.com/in.js", :type => "text/javascript"}
-        /  :cdata
-        /    lang: en_US
-        %script{"data-counter" => "top", "data-id" => "42835367", :type => "IN/FollowCompany"}
       .col-lg-4
         .row
-        = link_to 'Teach on Corsego', new_course_path, class: "#{'active font-weight-bold' if current_page?(new_course_path)}"
+        = link_to 'Teach on Islam4Kids', new_course_path, class: "#{'active font-weight-bold' if current_page?(new_course_path)}"
         .row
         = link_to 'About', about_path, class: "#{'active font-weight-bold' if current_page?(about_path)}"
         .row
@@ -32,19 +24,11 @@
         .row
         = link_to 'Terms', terms_path, class: "#{'active font-weight-bold' if current_page?(terms_path)}"
       .col-lg-4
-        = link_to "https://gumroad.com/l/ror6saas", target: :_blank do
-          Learn to build a Multi-Tenancy SaaS
+        = link_to "https://Islam4kids.org", target: :_blank do
+          Islam4Kids Site
           .fa.fa-external-link-alt
         .row
-        = link_to "https://www.udemy.com/course/ruby-on-rails-6-learn-20-gems-build-an-e-learning-platform/?referralCode=4721E9D437DEE1734159", target: :_blank do
-          Learn to build an eLearning platform
-          .fa.fa-external-link-alt
-        .row
-        = link_to "https://saas.corsego.com", target: :_blank do
-          SaaS Multi-Tenancy Boilerplate
-          .fa.fa-external-link-alt
-        .row
-        = link_to "https://blog.corsego.com", target: :_blank do
-          Corsego Ruby on Rails Blog
+        = link_to "https://Islam4kids.org", target: :_blank do
+          Islam4Kids Blog
           .fa.fa-external-link-alt
   %br/

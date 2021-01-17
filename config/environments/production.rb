@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = {host: "corsego.herokuapp.com", protocol: "https"}
+  config.action_mailer.default_url_options = {host: "Islam4Kids.herokuapp.com", protocol: "https"}
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
@@ -8,7 +8,7 @@ Rails.application.configure do
     email: {
       deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
       email_prefix: "[PREFIX] ",
-      sender_address: %("corsego error" <support@corsego.herokuapp.com>),
+      sender_address: %("Islam4Kids error" <support@Islam4Kids.herokuapp.com>),
       exception_recipients: %w[yshmarov@gmail.com]
     }
   # Settings specified here will take precedence over those in config/application.rb.
@@ -70,7 +70,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "corsego_production"
+  # config.active_job.queue_name_prefix = "Islam4Kids_production"
 
   config.action_mailer.perform_caching = false
 

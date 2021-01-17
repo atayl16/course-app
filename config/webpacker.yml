@@ -60,7 +60,7 @@ development:
     https: false
     host: localhost
     port: 8082
-    public: https://fd010b77ba5942ee8876046b9e2e436c.vfs.cloud9.eu-central-1.amazonaws.com:8082
+    public: http://localhost:3000/
     hmr: false
     # Inline should be set to true if using HMR
     inline: true

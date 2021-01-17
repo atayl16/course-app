@@ -1,14 +1,14 @@
 - content_for :title do
-  Corsego 
-  \| 
+  Islam4Kids
+  \|
   Online Courses - Learn Anything, On Your Schedule
 
 :css
-  .parallax { 
+  .parallax {
     /* The image used */
-    background-image: url("https://i.imgur.com/bldd1wu.jpg");
+    background-image: url("https://cdn.pixabay.com/photo/2020/12/19/20/20/mosque-5845220_960_720.png");
     /* Set a specific height */
-    height: auto; 
+    height: auto;
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
@@ -21,7 +21,7 @@
 .jumbotron.shadow.parallax
   %h1.text-shadow
     %b What do you want to learn today?
-  
+
   .p-4
 
   - if current_user
@@ -98,7 +98,7 @@
 
 %p
 
-%h2 
+%h2
   .fa.fa-tags
   Top Categories
 - @popular_tags.each do |tag|
@@ -109,7 +109,7 @@
         = tag.course_tags_count
 %hr
 
-- if current_user 
+- if current_user
   - if current_user.enrollments.any?
     %h2
       .fa.fa-user-graduate
@@ -140,7 +140,7 @@
       = render 'courses/course', course: course
       %p
 %hr
-%h2 
+%h2
   .fa.fa-star
   = link_to 'Top rated courses', courses_path(courses_search: {s: 'average_rating desc'})
 .row
@@ -149,7 +149,7 @@
       = render 'courses/course', course: course
       %p
 %hr
-%h2 
+%h2
   .fa.fa-clock
   = link_to 'Latest courses', courses_path(courses_search: {s: 'created_at desc'})
 .row
@@ -159,7 +159,7 @@
       %p
 %hr
 
-%h2 
+%h2
   .fa.fa-comment
   What our students have to say
 .row

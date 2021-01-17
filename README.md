@@ -1,16 +1,16 @@
-# Corsego - online learning platform.
+# Islam4Kids - online learning platform.
 
 ###### Best udemy clone on the market. Set up your online school in minutes!
 
-[![N|Solid](https://i.imgur.com/Hvjl2YJ.png)](https://corsego.herokuapp.com)
+[![N|Solid](https://i.imgur.com/Hvjl2YJ.png)](https://Islam4Kids.herokuapp.com)
 
 ### Entity-Relationship Diagram
 
-[![N|Solid](https://i.imgur.com/IIWWYxW.png)](https://corsego.herokuapp.com)
+[![N|Solid](https://i.imgur.com/IIWWYxW.png)](https://Islam4Kids.herokuapp.com)
 
 ### Video: How to install
 
-[![Corsego e-learning platform: How to run localy on ubuntu + AWS C9](http://img.youtube.com/vi/nQd03MgXDXY/0.jpg)](http://www.youtube.com/watch?v=nQd03MgXDXY "Video Title")
+[![Islam4Kids e-learning platform: How to run localy on ubuntu + AWS C9](http://img.youtube.com/vi/nQd03MgXDXY/0.jpg)](http://www.youtube.com/watch?v=nQd03MgXDXY "Video Title")
 
 ### Installation Requirements 
 * ruby v 2.7.1 +
@@ -54,8 +54,8 @@ exit
 
 1. Create app
 ```
-git clone https://github.com/rormvp/corsego
-cd corsego
+git clone https://github.com/rormvp/Islam4Kids
+cd Islam4Kids
 bundle
 yarn
 
