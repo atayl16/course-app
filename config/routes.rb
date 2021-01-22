@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "privacy", to: "static_pages#privacy"
   get "terms", to: "static_pages#terms"
   get "about", to: "static_pages#about"
+  get "teach", to: "users#become_teacher"
 
   get '/sitemap.xml', to: redirect("https://Islam4Kids-public.s3.eu-central-1.amazonaws.com/sitemap.xml")
 
@@ -45,6 +46,7 @@ Rails.application.routes.draw do
   resources :youtube, only: :show
 
   resources :users, only: [:index, :edit, :show, :update]
+
 
   namespace :charts do
     get "users_per_day"

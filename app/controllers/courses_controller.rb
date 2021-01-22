@@ -67,7 +67,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     authorize @course
     @course.description = "Curriculum Description"
-    @course.marketing_description = "Marketing Description"
+    @course.short_description = "Short Description"
     @course.user = current_user
 
     if @course.save

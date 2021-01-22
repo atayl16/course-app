@@ -1,0 +1,99 @@
+- content_for :title do
+  Islam4Kids
+  \|
+  Online Courses - Learn Anything, On Your Schedule
+
+:css
+  .parallax {
+    background-image: url("https://cdn.pixabay.com/photo/2020/12/14/17/40/studying-5831644_960_720.jpg");
+    height: auto;
+    /* Create the parallax scrolling effect */
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+  }
+  / parallax
+
+.jumbotron.shadow.parallax
+  %h1.text-shadow
+    %b Are you interested in helping children learn about Islam?
+
+  .p-4
+
+  - if current_user
+    .p-3
+      = link_to 'Register as a Teacher', edit_user_path(@user = current_user), class: 'btn btn-custom-purple btn-lg'
+  - else
+    %h3.text-shadow Join to access all the courses
+    .p-2
+    = link_to 'Register', new_user_registration_path, class: 'btn btn-custom-purple btn-lg'
+    = link_to 'Login', new_user_session_path, class: 'btn btn-custom-purple btn-lg'
+    .row.mt-1
+    = link_to user_google_oauth2_omniauth_authorize_path, class: 'btn btn-danger btn-lg mr-1' do
+      Continue with
+      .fab.fa-google
+    .row.mt-1
+    = link_to user_github_omniauth_authorize_path, class: 'btn btn-dark btn-lg mr-1' do
+      Continue with
+      .fab.fa-github
+    .row.mt-1
+    = link_to user_facebook_omniauth_authorize_path, class: 'btn btn-primary btn-lg mr-1' do
+      Continue with
+      .fab.fa-facebook
+
+.card-group.shadow
+  .card
+    .card-header
+      %h3 Why teach?
+      %h1
+      .fa.fa-graduation-cap
+      The benefits of learning your deen and teaching that to others are well known among Muslims.
+
+  .card-group.shadow
+    .card
+      .card-body
+        %b
+        .fa.fa-award
+        %em Ibn Mas'ud (May Allah be pleased with him) reported:
+        The Prophet (peace be upon him) said, "Envy is permitted only in two cases: A man whom Allah gives wealth, and he disposes of it rightfully, and a man to whom Allah gives knowledge which he applies and teaches it."
+        %small [Al- Bukhari and Muslim].
+    .card
+      .card-body
+        %b
+        .fa.fa-award
+        %em Abu Hurairah (May Allah be pleased with him) reported:
+        The Messenger of Allah (peace be upon him) said, "He who calls others to follow the Right Guidance will have a reward equal to the reward of those who follow him, without their reward being diminished in any respect on that account."
+        %small [Muslim].
+    .card
+      .card-body
+        %b
+        .fa.fa-award
+        %em Abu Hurairah (May Allah be pleased with him) reported:
+        The Messenger of Allah (peace be upon him) said, "When a man dies, his deeds come to an end except for three things: Sadaqah Jariyah (ceaseless charity); a knowledge which is beneficial, or a virtuous descendant who prays for him (for the deceased)."
+        %small [Muslim].
+
+%br
+.card-group.shadow
+  .card
+    .card-body
+      %b
+        .fa.fa-clock
+        Teach anytime
+      %small
+        Courses can be built in days or years. Add your content and publish the course when you are ready, all at once or lesson by lesson
+  .card
+    .card-body
+      %b
+        .far.fa-check-circle
+        Teach from anywhere
+      %small
+        Spread dawah to children all over the world. Everything is online, so you can teach no matter where you are
+  .card
+    .card-body
+      %b
+        .far.fa-play-circle
+        Teach anything
+      %small
+        It's our responsibility to teach what we know so spread your knowledge big or small

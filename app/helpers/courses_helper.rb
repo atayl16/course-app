@@ -3,18 +3,17 @@ module CoursesHelper
     if current_user
       if course.user == current_user
         link_to course_path(course) do
-          "You created this course " +
-            number_to_currency(course.price)
+          "You created this course "
         end
       elsif current_user.bought?(course)
         render "courses/progress", course: course
-      elsif course.price > 0
-        link_to number_to_currency(course.price), new_course_enrollment_path(course), class: "btn btn-success"
+      # elsif course.price > 0
+      #   link_to number_to_currency(course.price), new_course_enrollment_path(course), class: "btn btn-success"
       else
-        link_to "Free", new_course_enrollment_path(course), class: "btn btn-success"
+        link_to "Learn More", new_course_enrollment_path(course), class: "btn btn-success"
       end
     else
-      link_to "Check price", new_course_enrollment_path(course), class: "btn btn-md btn-success"
+      link_to "Learn More", new_course_enrollment_path(course), class: "btn btn-md btn-success"
     end
   end
 

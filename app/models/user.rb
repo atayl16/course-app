@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :validatable, :trackable, :confirmable,
+    :recoverable, :rememberable, :validatable, :trackable,
     :omniauthable, omniauth_providers: [:google_oauth2, :github, :facebook]
 
   rolify
@@ -74,7 +74,7 @@ class User < ApplicationRecord
       add_role(:student)
     else
       add_role(:student) if roles.blank?
-      add_role(:teacher) # if you want any user to be able to create own courses
+      #add_role(:teacher) # if you want any user to be able to create own courses
     end
   end
 
@@ -101,16 +101,16 @@ class User < ApplicationRecord
     lessons.include?(lesson)
   end
 
-  def calculate_course_income
-    update_column :course_income, courses.map(&:income).sum
-    update_column :balance, (course_income - enrollment_expences)
-  end
+  # def calculate_course_income
+  #   update_column :course_income, courses.map(&:income).sum
+  #   update_column :balance, (course_income - enrollment_expences)
+  # end
+  #
+  # def calculate_enrollment_expences
+  #   update_column :enrollment_expences, enrollments.map(&:price).sum
+  #   update_column :balance, (course_income - enrollment_expences)
+  # end
 
-  def calculate_enrollment_expences
-    update_column :enrollment_expences, enrollments.map(&:price).sum
-    update_column :balance, (course_income - enrollment_expences)
-  end
-  
   private
 
   def must_have_a_role

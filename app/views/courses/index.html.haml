@@ -1,6 +1,6 @@
 - content_for :title do
-  Islam4Kids 
-  \| 
+  Islam4Kids
+  \|
   = controller_name.humanize
   = action_name.humanize
 
@@ -18,7 +18,7 @@
     .sticky-top
       = search_form_for @ransack_courses, as: :courses_search, url: @ransack_path do |f|
         = f.label :title_or_description
-        = f.search_field :title_or_marketing_description_cont, placeholder: 'Title', class: 'form-control form-control-sm'
+        = f.search_field :title_or_short_description_cont, placeholder: 'Title', class: 'form-control form-control-sm'
         .row
         = f.label :tag
         = f.select :course_tags_tag_name_cont, @tags, {include_blank: true}, class: "form-control  form-control-sm"
@@ -31,13 +31,10 @@
         .row
         = f.select :level_cont, Course.levels, {include_blank: true}, class: "form-control  form-control-sm"
         .row
-        = f.label :price
-        = f.search_field :price_eq, placeholder: 'Price', class: 'form-control form-control-sm'
         = f.label :teacher
         = f.search_field :user_email_cont, placeholder: 'Email', class: 'form-control form-control-sm'
         .row
-        = sort_link(@ransack_courses, :price)
-        .row
+
         = sort_link(@ransack_courses, :average_rating, "Top Rated")
         .row
         = sort_link(@ransack_courses, :enrollments_count, "Most Popular")

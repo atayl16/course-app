@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :add_teacher_role]
 
   def index
     @q = User.ransack(params[:q])
@@ -14,11 +14,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    authorize @user
+    #authorize @user
   end
 
   def update
-    authorize @user
+    #authorize @user
     if @user.update(user_params)
       redirect_to root_path, notice: "User roles were successfully updated."
     else

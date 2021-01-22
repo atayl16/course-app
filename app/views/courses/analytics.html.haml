@@ -1,5 +1,5 @@
 - content_for :title do
-  Islam4Kids 
+  Islam4Kids
   |
   = @course.title
   |
@@ -22,12 +22,6 @@
     = line_chart @course.enrollments.group_by_day(:created_at).count
 
 %h4.text-center
-  Enrollments per day, revenue
-.card
-  .card-body
-    = line_chart @course.enrollments.group_by_day(:created_at).sum(:price)
-
-%h4.text-center
   Unique user views (how many unique users viewed the lesson)
 .card
   .card-body
@@ -38,5 +32,3 @@
 .card
   .card-body
     = bar_chart @course.user_lessons.joins(:lesson).group(:'lessons.title').sum(:impressions)
-
-

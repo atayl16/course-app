@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
-  validates :title, :description, :marketing_description, :language, :price, :level, presence: true
+  validates :title, :description, :short_description, :language, :price, :level, presence: true
   validates :description, length: {minimum: 5}
-  validates :marketing_description, length: {maximum: 300}
+  validates :short_description, length: {maximum: 300}
 
   belongs_to :user, counter_cache: true
   # User.find_each { |user| User.reset_counters(user.id, :courses) }
@@ -40,7 +40,7 @@ class Course < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  LANGUAGES = [:English, :Russian, :Polish, :Spanish]
+  LANGUAGES = [:English, :Arabic, :French, :Spanish]
   def self.languages
     LANGUAGES.map { |language| [language, language] }
   end
@@ -63,10 +63,10 @@ class Course < ApplicationRecord
     end
   end
 
-  def calculate_income
-    update_column :income, enrollments.map(&:price).sum
-    user.calculate_course_income
-  end
+  # def calculate_income
+  #   update_column :income, enrollments.map(&:price).sum
+  #   user.calculate_course_income
+  # end
 
   def update_rating
     if enrollments.any? && enrollments.where.not(rating: nil).any?

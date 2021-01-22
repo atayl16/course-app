@@ -1,28 +1,20 @@
-%b 
+%b
   You have a new student in the course
 = link_to @enrollment.course, @enrollment.course
 .row
-%b 
+%b
   Enrollment date:
 = @enrollment.created_at
 .row
-%b 
-  Enrollment ID: 
+%b
+  Enrollment ID:
 = @enrollment.slug
 .row
-%b 
-  Course price:
-= number_to_currency(@enrollment.course.price)
-.row
-%b 
-  Price paid:
-= number_to_currency(@enrollment.price)
-.row
-%b 
+%b
   Student:
 = @enrollment.user.username
 = mail_to @enrollment.user.email, @enrollment.user.email
 %p
-Regards, 
+Regards,
 .row
 = link_to 'The Islam4Kids team', root_url

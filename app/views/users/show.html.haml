@@ -1,6 +1,6 @@
 - content_for :title do
-  Islam4Kids 
-  \| 
+  Islam4Kids
+  \|
   = @user.username
 
 .row
@@ -43,20 +43,6 @@
           %b= 'last_sign_in_at'.humanize + ":"
           = @user.last_sign_in_at
           .row
-          %b= 'current_sign_in_ip'.humanize + ":"
-          = @user.current_sign_in_ip
-          .row
-          %b= 'last_sign_in_ip'.humanize + ":"
-          = @user.last_sign_in_ip
-        .card-footer
-          %b= 'course_income'.humanize + ":"
-          = @user.course_income
-          .row
-          %b= 'enrollment_expences'.humanize + ":"
-          = @user.enrollment_expences
-          .row
-          %b= 'balance'.humanize + ":"
-          = @user.balance
       .card-footer
         .fa.fa-graduation-cap
         Courses created:
@@ -78,9 +64,6 @@
         Students:
         = @user.students.count
       .card-footer
-        Confirmed email?
-        = boolean_label(@user.confirmed?)
-      .card-footer
         - @user.roles.each do |role|
           .badge.badge-info
             = role.name
@@ -89,18 +72,19 @@
 
     %p
   .col-md-6
-    .card.shadow
-      .card-header
-        %b Courses: Teaching
-      .card-body
-        - @courses_teaching.each do |course|
-          .row
-          = link_to course.title, course_path(course)
-    %p
-    .card.shadow
-      .card-header
-        %b Courses: Learning
-      .card-body
-        - @courses_learning.each do |enrollment|
-          .row
-          = link_to enrollment.course.title, course_path(enrollment.course)
+    - if current_user.has_role?(:teacher)
+      .card.shadow
+        .card-header
+          %b Courses: Teaching
+        .card-body
+          - @courses_teaching.each do |course|
+            .row
+            = link_to course.title, course_path(course)
+    - if current_user.has_role?(:student)
+      .card.shadow
+        .card-header
+          %b Courses: Learning
+        .card-body
+          - @courses_learning.each do |enrollment|
+            .row
+            = link_to enrollment.course.title, course_path(enrollment.course)

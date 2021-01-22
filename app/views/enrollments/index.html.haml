@@ -1,5 +1,5 @@
 - content_for :title do
-  Islam4Kids 
+  Islam4Kids
   |
   = controller_name.humanize
   = action_name.humanize
@@ -17,7 +17,6 @@
   = f.search_field :user_email_cont, placeholder: 'user email'
   = f.search_field :course_title_cont, placeholder: 'course title'
   = f.search_field :course_user_email_cont, placeholder: 'teacher'
-  = f.search_field :price_eq, placeholder: 'price'
   = f.search_field :rating_eq, placeholder: 'rating'
   = f.submit
 = link_to 'refresh', @ransack_path
@@ -41,18 +40,14 @@
           /.fa.fa-graduation-cap
           /Course
         %th Teacher
-        %th 
-          = sort_link(@q, :price)
-          /.fa.fa-dollar-sign
-          /Price
-        %th 
+        %th
           .text-warning.fa.fa-clock
           = sort_link(@q, :updated_at, 'Reviewed')
           /Reviewed on
-        %th 
+        %th
           .text-warning.fa.fa-star
           = sort_link(@q, :rating)
-        %th 
+        %th
           .text-warning.fa.fa-comment
           Review
         %th Progress
@@ -60,7 +55,7 @@
         %th
         %th
         %th
-  
+
     %tbody
       - @enrollments.each do |enrollment|
         %tr
@@ -71,7 +66,6 @@
           %td= enrollment.created_at.strftime("%d/%m/%Y, %H:%M")
           %td= link_to enrollment.course, course_path(enrollment.course)
           %td= link_to enrollment.course.user, user_path(enrollment.course.user)
-          %td= number_to_currency(enrollment.price)
           %td
             - if enrollment.rating.present?
               = enrollment.updated_at.strftime("%d/%m/%Y, %H:%M")
