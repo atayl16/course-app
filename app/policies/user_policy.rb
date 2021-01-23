@@ -14,15 +14,15 @@ class UserPolicy < ApplicationPolicy
     end
 
     def edit?
-      @user.has_role?(:admin)
+      #@user.has_role?(:admin)
     end
 
     def update?
-      @user.has_role?(:admin) || is_owner?
+      #@user.has_role?(:admin) || is_owner?
     end
 
     def user_is_admin?
-      @user.has_role?(:admin) 
+      @user.has_role?(:admin)
     end
 
     def is_owner?
