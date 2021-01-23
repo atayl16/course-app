@@ -15,14 +15,6 @@
           .text-danger.fa.fa-signal
         = link_to @user.username, user_path(@user)
       .card-footer
-        - if @user == current_user && @user.uid.nil?
-          %p
-        - if @user.image?
-          .row
-          = image_tag @user.image, size: '40x40', alt: "#{@user.email}", class: 'rounded-circle'
-        .row
-        = @user.name
-      .card-footer
         Signed up
         = time_ago_in_words(@user.created_at)
         ago
@@ -57,9 +49,10 @@
         Lessons viewed:
         = @user.user_lessons_count
         .row
-        .fa.fa-user-graduate
-        Students:
-        = @user.students.count
+        - if current_user.has_role?(:teacher)
+          .fa.fa-user-graduate
+          Students:
+          = @user.students.count
       .card-footer
         - @user.roles.each do |role|
           .badge.badge-info
