@@ -39,11 +39,11 @@
         .row
         = sort_link(@ransack_courses, :enrollments_count, "Most Popular")
         .row
-        = sort_link(@ransack_courses, :created_at, "Fresh")
+        = sort_link(@ransack_courses, :created_at, "Recent")
         .row
         = f.submit
         .row
-        = link_to 'unfilter', controller: controller_name, action: action_name
+        = link_to 'Reset', controller: controller_name, action: action_name
       %hr
       .row
       - @tags.each do |tag|
