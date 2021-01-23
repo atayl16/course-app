@@ -7,9 +7,9 @@ SitemapGenerator::Sitemap.sitemaps_host = "https://Islam4Kids-public.s3.eu-centr
 
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
   "Islam4Kids-public",
-  aws_access_key_id: Rails.application.credentials.dig(:awss3, :access_key_id),
-  aws_secret_access_key: Rails.application.credentials.dig(:awss3, :secret_access_key),
-  aws_region: "eu-central-1"
+  aws_access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
+  aws_secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
+  aws_region: "us-east-1"
 )
 
 SitemapGenerator::Sitemap.create do
@@ -18,7 +18,7 @@ SitemapGenerator::Sitemap.create do
   add new_user_session_path, priority: 0.7, changefreq: 'monthly'
   add tags_path, priority: 0.3, changefreq: 'monthly'
   add courses_path, priority: 0.7, changefreq: 'daily'
-  
+
   Course.where(approved: true, published: true).find_each do |course|
     add course_path(course), :lastmod => course.updated_at
   end

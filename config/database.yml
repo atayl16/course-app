@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: degblrjhmq0prv
-  username: feaxrcqanbteaa
+  database: Islam4Kids_production
+  username: Islam4Kids
   password: <%= ENV['Islam4Kids_DATABASE_PASSWORD'] %>
