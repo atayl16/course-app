@@ -6,7 +6,7 @@ SitemapGenerator::Sitemap.default_host = "https://www.Islam4kids.org"
 SitemapGenerator::Sitemap.sitemaps_host = "https://Islam4Kids-public.s3.eu-central-1.amazonaws.com/"
 
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
-  "Islam4Kids-public",
+  "atayl16-course-app",
   aws_access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
   aws_secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
   aws_region: "us-east-1"
