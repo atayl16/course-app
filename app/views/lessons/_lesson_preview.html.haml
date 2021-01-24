@@ -4,5 +4,9 @@
 = lesson.title
 .row
 - unless lesson.comments_count.zero?
-  .fa.fa-comment
-  = lesson.comments_count
+  - if current_user
+    - if current_user.has_role?(:teacher || :admin)
+      .fa.fa-comment
+      = lesson.comments_count
+- else
+  %p

@@ -2,11 +2,13 @@
   .fa.fa-edit
 = link_to [@course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'badge badge-danger' do
   .fa.fa-trash
-= link_to course_lesson_path(@course, lesson) do 
+= link_to course_lesson_path(@course, lesson) do
   %b
     #{lesson.row_order_rank + 1}.
   = lesson.title
 .row
 - unless lesson.comments_count.zero?
-  .fa.fa-comment
-  = lesson.comments_count
+  - if current_user
+    - if current_user.has_role?(:teacher || :admin)
+      .fa.fa-comment
+      = lesson.comments_count

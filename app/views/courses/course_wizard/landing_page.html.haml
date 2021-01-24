@@ -15,4 +15,7 @@
 
     = f.input :description, as: :rich_text_area
 
+    = f.label :tags
+    = f.select :tag_ids, @tags.all.pluck(:name, :id), {}, { multiple: true, class: "selectize-tags" }
+    %p
     = f.button :submit, "Save & Continue"

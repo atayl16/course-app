@@ -3,15 +3,15 @@ class Courses::CourseWizardController < ApplicationController
   before_action :set_progress, only: [:show, :update]
   before_action :set_course, only: [:show, :update, :finish_wizard_path]
 
-  steps :landing_page, :targeting, :pricing, :chapters, :publish
+  steps :landing_page, :language, :level, :chapters, :publish
 
   def show
     authorize @course, :edit?
     case step
     when :landing_page
-    when :targeting
       @tags = Tag.all
-    when :pricing
+    when :language
+    when :level
     when :chapters
       unless @course.chapters.any?
         @course.chapters.build
@@ -25,9 +25,9 @@ class Courses::CourseWizardController < ApplicationController
     authorize @course, :edit?
     case step
     when :landing_page
-    when :targeting
+    when :language
       @tags = Tag.all
-    when :pricing
+    when :level
     when :chapters
       # unless @course.chapters.any? # chapter title and content validation fires only if this line is present
       #  @course.chapters.build

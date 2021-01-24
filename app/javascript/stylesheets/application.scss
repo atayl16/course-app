@@ -4,24 +4,21 @@
 @import "selectize/dist/css/selectize.default";
 
 //shadow for text on landing page
-.text-shadow { text-shadow: 1px 1px black; }
+.text-shadow { text-shadow: 1px 1px black; color: white;}
 
-//light background
-body { background-color: #ede3d5; }
+body { background-image: url("https://cdn.pixabay.com/photo/2017/01/05/08/58/landscape-1954307_960_720.png");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+     }
 
-//for all purple brand elements
 .purple-background { background-color: #563d7c; }
-//white background for all tables
 .table { background: white; }
 
-//dark background style
-//body { background: #2a4054; color: #ebedf0; }
-//.card, .jumbotron, .list-group-item { color: #2a4054; }
-//hr { background-color: white; }
-
 //hide simple_form checkmarks
-.form-control.is-invalid{ background-image: none; }
-.form-control.is-valid{ background-image: none; }
+// .form-control.is-invalid{ background-image: none; }
+// .form-control.is-valid{ background-image: none; }
 
 //_lesson_fields - shadow on hover
 .nested-fields.container.rounded {
@@ -89,4 +86,8 @@ footer {
 // embed vimeo size
 .embed-responsive-3by2 {
   padding-top: 66.66666667%; /* 3:2 Aspect Ratio */
+}
+
+.col-lg-2 {
+background-color: #e9ecef97;
 }
