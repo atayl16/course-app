@@ -21,7 +21,7 @@
           = link_to 'Cancel', root_path, class: 'btn btn-danger'
     - else
       .card-body
-        Would you like to add the teacher role to your account?
+        Please select the roles you would like active on your account.
         = simple_form_for @user, action: 'update' do |f|
 
           = f.collection_check_boxes :role_ids, { 'Teacher ': 2, 'Student': 3 }, :last, :first

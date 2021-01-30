@@ -25,8 +25,8 @@ class Courses::CourseWizardController < ApplicationController
     authorize @course, :edit?
     case step
     when :landing_page
-    when :language
       @tags = Tag.all
+    when :language
     when :level
     when :chapters
       # unless @course.chapters.any? # chapter title and content validation fires only if this line is present
