@@ -1,11 +1,7 @@
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.admin?
-        scope.all
-      else
-        scope.where(user: current_user)
-      end
+      scope.all
     end
   end
 
@@ -14,11 +10,11 @@ class UserPolicy < ApplicationPolicy
     end
 
     def edit?
-      #@user.has_role?(:admin)
+      @user.has_role?(:admin) || @record.id == @user.id
     end
 
     def update?
-      #@user.has_role?(:admin) || is_owner?
+      @user.has_role?(:admin) || @record.id == @user.id
     end
 
     def user_is_admin?
@@ -28,5 +24,4 @@ class UserPolicy < ApplicationPolicy
     def is_owner?
       @user.id == current_user.id
     end
-
 end
