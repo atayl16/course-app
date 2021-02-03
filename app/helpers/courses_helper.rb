@@ -10,10 +10,28 @@ module CoursesHelper
       # elsif course.price > 0
       #   link_to number_to_currency(course.price), new_course_enrollment_path(course), class: "btn btn-success"
       else
-        link_to "Learn More", new_course_enrollment_path(course), class: "btn btn-success"
+        link_to "Enroll", new_course_enrollment_path(course), class: "btn btn-success"
       end
     else
-      link_to "Learn More", new_course_enrollment_path(course), class: "btn btn-md btn-success"
+      link_to "Enroll", new_course_enrollment_path(course), class: "btn btn-md btn-success"
+    end
+  end
+
+  def view_button(course)
+    if current_user
+      if course.user == current_user
+        link_to course_path(course) do
+          "You created this course "
+        end
+      elsif current_user.bought?(course)
+      #  render "courses/progress", course: course
+      # elsif course.price > 0
+      #   link_to number_to_currency(course.price), new_course_enrollment_path(course), class: "btn btn-success"
+      else
+        link_to "View Course", course_path(course), class: "btn btn-success"
+      end
+    else
+      link_to "View Course", course_path(course), class: "btn btn-success"
     end
   end
 

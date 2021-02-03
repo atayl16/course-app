@@ -23,6 +23,9 @@
           %b= 'email'.humanize + ":"
           = @user.email
           .row
+          %b= 'display_name'.humanize + ":"
+          = @user.display_name
+          .row
           %b= 'sign_in_count'.humanize + ":"
           = @user.sign_in_count
           .row

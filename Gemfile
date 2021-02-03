@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.7.2"
 
 gem "rails", "~> 6.0.3.4"
-# gem 'rails', github: 'rails/rails', branch: 'master'
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 4.1"
 gem "sass-rails", ">= 6"
@@ -31,33 +30,29 @@ group :test do
   gem "webdrivers"
 end
 
-gem "haml-rails", "~> 2.0" # HTML abstraction markup language
-# gem 'font-awesome-sass', '~> 5.12.0' #add icons for styling #installed via yarn withot gem
-gem "simple_form" # creating forms made easier
-gem "faker" # fake data for seeds.rb
-gem 'devise', :git => "https://github.com/heartcombo/devise.git", ref: '8bb358cf80a632d3232c3f548ce7b95fd94b6eb2' # authentication as a User
-gem "friendly_id", "~> 5.2.4" # nice URLs and hide IDs
-gem "ransack" # filter and sort data
-gem "public_activity" # see all activity in the app
-gem "rolify" # give users roles (admin, teacher, student)
-gem "pundit" # authorization (different roles have different accesses)
-gem "exception_notification", group: :production # email notifications if any errors in production
-gem "pagy" # pagination
-gem "chartkick" # charts #yarn add chartkick chart.js
-gem "groupdate" # group records by day/week/year
-gem "rails-erd", group: :development # sudo apt-get install graphviz; bundle exec erd
-gem "ranked-model" # give serial/index numbers to items in a list
-gem "aws-sdk-s3", require: false # save images and files in production
-gem "active_storage_validations" # validate image and file uploads
-gem "image_processing" # sudo apt install imagemagick
-# gem "recaptcha" # for new user registration
-gem "wicked_pdf" # PDF for Ruby on Rails
+gem "haml-rails", "~> 2.0"
+gem "simple_form" 
+gem "faker"
+gem 'devise', :git => "https://github.com/heartcombo/devise.git", ref: '8bb358cf80a632d3232c3f548ce7b95fd94b6eb2'
+gem "friendly_id", "~> 5.2.4"
+gem "ransack"
+gem "public_activity"
+gem "rolify"
+gem "pundit"
+gem "exception_notification", group: :production
+gem "pagy"
+gem "chartkick"
+gem "groupdate"
+gem "rails-erd", group: :development
+gem "ranked-model"
+gem "aws-sdk-s3", require: false
+gem "active_storage_validations"
+gem "image_processing"
+gem "wicked_pdf"
 gem "wkhtmltopdf-binary", group: :development
 gem "wkhtmltopdf-heroku", group: :production
-gem "wicked" # multistep forms
-gem "omniauth-google-oauth2" # sign in with google
-# gem "omniauth-github", github: "omniauth/omniauth-github", branch: "master"
-# gem "omniauth-facebook" # sign in with facebook
-gem "cocoon" # nested forms
-gem "stripe" # accept payments
-gem 'sitemap_generator' # SEO and webmasters
+gem "wicked"
+gem "omniauth-google-oauth2"
+gem "cocoon"
+gem "stripe"
+gem 'sitemap_generator'

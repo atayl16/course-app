@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def update
     authorize @user
     if @user.update(user_params)
-      redirect_to root_path, notice: "User roles were successfully updated."
+      redirect_to root_path, notice: "User was successfully updated."
     else
       render :edit
     end
@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit({role_ids: []})
+    params.require(:user).permit(:display_name, {role_ids: []})
   end
 end

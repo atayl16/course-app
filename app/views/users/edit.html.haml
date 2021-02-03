@@ -17,6 +17,9 @@
           = f.collection_check_boxes :role_ids, Role.all, :id, :name
           = f.error :roles, class: 'text-danger'
           %hr
+          = f.input :display_name
+          = f.error :display_name, class: 'text-danger'
+          %hr
           = f.button :submit, class: "btn btn-success"
           = link_to 'Cancel', root_path, class: 'btn btn-danger'
     - else
@@ -25,6 +28,9 @@
         = simple_form_for @user, action: 'update' do |f|
           = f.collection_check_boxes :role_ids, { 'Teacher ': 2, 'Student': 3 }, :last, :first
           = f.error :roles, class: 'text-danger'
+          %hr
+          = f.input :display_name
+          = f.error :display_name, class: 'text-danger'
           %hr
           = f.button :submit, class: "btn btn-success"
           = link_to 'Cancel', root_path, class: 'btn btn-danger'

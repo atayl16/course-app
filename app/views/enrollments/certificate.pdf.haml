@@ -14,39 +14,41 @@
       %br
       %p
       %h3
-        This is to certify that the owner of the email address
-      %h2
-        %u
+        This is to certify that
+      -  if @enrollment.user.display_name?
+        %h2
+          = @enrollment.user.display_name
+      -  else
+        %h2
           = @enrollment.user.email
       %h3
         has successfully completed the course
       %h2
-        %u
-          = @enrollment.course.title
+        = @enrollment.course.title
       %h3
-        on the Islam4kids.org platform
+        on the Islam4kids Academy platform
 
-      %p
+        %br
+        %br
+        %center
+        %h3
+        = image_tag wicked_pdf_asset_base64('logo_color.png'), height: "140", width: "auto"
+        %p
+        www.islam4kids.org
+
 
       %br
       %br
       %br
-      %b Certificate id:
-      #{@enrollment.slug}
-
-      %p
-
-      %b Certificate url:
-      #{request.base_url}#{request.original_fullpath}
 
       %p
       %b Registration date:
       #{@enrollment.created_at.strftime('%d-%b-%Y')}
 
-      %br
-      %br
-      %center
-        %h3
-          = image_tag wicked_pdf_asset_base64('logo.png'), height: "30", width: "auto"
-          %p
-          www.islam4kids.org
+      %p
+      %b Certificate id:
+      #{@enrollment.slug}
+
+      %p
+      %b Certificate url:
+      #{request.base_url}#{request.original_fullpath}
