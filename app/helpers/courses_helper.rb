@@ -3,7 +3,7 @@ module CoursesHelper
     if current_user
       if course.user == current_user
         link_to course_path(course) do
-          "You created this course "
+          "<i class='text-warning fa.fa-chalkboard-teacher'></i>".html_safe
         end
       elsif current_user.bought?(course)
         render "courses/progress", course: course
@@ -21,7 +21,7 @@ module CoursesHelper
     if current_user
       if course.user == current_user
         link_to course_path(course) do
-          "You created this course "
+          " You created this course. "
         end
       elsif current_user.bought?(course)
       #  render "courses/progress", course: course
