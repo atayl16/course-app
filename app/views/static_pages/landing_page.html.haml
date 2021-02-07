@@ -13,12 +13,10 @@
   %h1
     %b Islam4Kids Academy
   .p-2
-  %h3
-    %b Enroll for free to earn your certificate of completion!
-
-  .p-2
 
   - if current_user
+    .p-2
+    %h3.text-shadow What will you learn today?
     .p-2
     = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
       .input-group
@@ -33,14 +31,14 @@
     = link_to 'Register', new_user_registration_path, class: 'btn btn-custom-purple btn-lg'
     = link_to 'Login', new_user_session_path, class: 'btn btn-custom-purple btn-lg'
     .row.mt-1
-
-  .form-inline.my-2.my-lg-0
-    = form_tag(courses_path, method: :get) do
-      .input-group
-        = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Find a course", class: 'form-control-sm'
-        %span.input-group-append
-          %button.btn.btn-primary.btn-sm{:type => "submit"}
-            %span.fa.fa-search{"aria-hidden" => "true"}
+    .p-2
+    .form-inline.my-2.my-lg-0
+      = form_tag(courses_path, method: :get) do
+        .input-group
+          = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Find a course", class: 'form-control-sm'
+          %span.input-group-append
+            %button.btn.btn-primary.btn-sm{:type => "submit"}
+              %span.fa.fa-search{"aria-hidden" => "true"}
 
 .card-group.shadow
   .card
