@@ -12,7 +12,7 @@
 .row
 %b
   Course instructor:
-= @enrollment.course.user.username
+= @enrollment.course.user.teacher_name
 = mail_to @enrollment.course.user.email, @enrollment.course.user.email
 %p
 After completing the course, you will be entitled to a Certificate of Completion.

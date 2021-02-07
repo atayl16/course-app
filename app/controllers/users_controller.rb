@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:display_name, {role_ids: []})
+    params.require(:user).permit(:display_name, :teacher_name, {role_ids: []})
   end
 end

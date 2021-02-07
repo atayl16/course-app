@@ -2,7 +2,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable, :trackable,
     :omniauthable, omniauth_providers: [:google_oauth2]
-
+  validates_uniqueness_of :teacher_name
+  
   rolify
 
   has_many :courses, dependent: :nullify

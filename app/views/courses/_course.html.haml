@@ -35,8 +35,11 @@
         .text-right
           - if course.user
             - if course.user.image?
-              = image_tag course.user.image, size: '20x20', alt: "#{course.user.email}", class: 'rounded-circle'
-            = link_to course.user.username, user_path(course.user)
+              = image_tag course.user.image, size: '20x20', alt: "#{course.user.teacher_name}", class: 'rounded-circle'
+            - if course.user.teacher_name?
+              = link_to course.user.teacher_name, user_path(course.user)
+            - else
+              = link_to course.user.username, user_path(course.user)
   - if current_user
     - if policy(course).owner?
       .card-footer

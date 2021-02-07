@@ -18,65 +18,63 @@ if User.find_by_email("student@example.com").nil?
   student.add_role(:student) unless student.has_role?(:student)
 end
 
-# PublicActivity.enabled = false
+PublicActivity.enabled = false
 
-# 5.times do
-#   Course.create!([{
-#     title: Faker::Educator.course_name,
-#     short_description: Faker::Quote.famous_last_words,
-#     description: Faker::Lorem.paragraph,
-#     user: User.find_by(email: "admintest@example.com"),
-#     language: "English",
-#     level: "All levels",
-#     # price: Faker::Number.between(from: 1000, to: 20000),
-#     price: 0,
-#     approved: true,
-#     published: true
-#   }])
-# end
-#
-# 5.times do
-#   Course.create!([{
-#     title: Faker::Educator.course_name,
-#     short_description: Faker::Quote.famous_last_words,
-#     description: Faker::Lorem.paragraph,
-#     user: User.find_by(email: "studentteacher@example.com"),
-#     language: Faker::ProgrammingLanguage.name,
-#     level: "Beginner",
-#     # price: Faker::Number.between(from: 1000, to: 20000),
-#     price: 0,
-#     approved: true,
-#     published: true
-#   }])
-# end
-#
-# Course.all.each do |course|
-#   # Enrollment.create!([{
-#   #   user: User.find_by(email: "studentteacher@example.com"),
-#   #   course: course
-#   #   }])
-#   Enrollment.create!([{
-#     user: User.find_by(email: "student@example.com"),
-#     course: course,
-#     price: course.price
-#     }])
-#   5.times do
-#     row = [0...4]
-#     Chapter.create!([{
-#       row_order: row.sample(5),
-#       course_id: course.id,
-#       title: Faker::Educator.course_name,
-#     }])
-#   end
-# end
-#
-# Chapter.all.each do
-#   Lesson.create!([{
-#     title: Faker::Lorem.sentence(word_count: 3),
-#     content: Faker::Lorem.sentence,
-#     chapter_id: chapter.id
-#     }])
-# end
-#
-#
-# PublicActivity.enabled = true
+5.times do
+  Course.create!([{
+    title: Faker::Educator.course_name,
+    short_description: Faker::Quote.famous_last_words,
+    description: Faker::Lorem.paragraph,
+    user: User.find_by(email: "admintest@example.com"),
+    language: "English",
+    level: "All levels",
+    # price: Faker::Number.between(from: 1000, to: 20000),
+    price: 0,
+    approved: true,
+    published: true
+  }])
+end
+
+5.times do
+  Course.create!([{
+    title: Faker::Educator.course_name,
+    short_description: Faker::Lorem.sentence,
+    description: Faker::Lorem.paragraph,
+    user: User.find_by(email: "studentteacher@example.com"),
+    language: Faker::ProgrammingLanguage.name,
+    level: "Beginner",
+    price: 0,
+    approved: true,
+    published: true
+  }])
+end
+
+Course.all.each do
+  Enrollment.create!([{
+    user: User.find_by(email: "student@example.com"),
+    course: course,
+    price: 0
+    }])
+end
+
+Course.all.each do
+  5.times do
+    row = [0...4]
+    Chapter.create!([{
+      row_order: row.sample(5),
+      course_id: course.id,
+      title: Faker::Educator.course_name
+      }])
+  end
+end
+
+Chapter.all.each do
+  Lesson.create!([{
+    title: Faker::Lorem.sentence(word_count: 3),
+    content: Faker::Lorem.sentence,
+    chapter_id: chapter.id
+    }])
+end
+
+
+PublicActivity.enabled = true
