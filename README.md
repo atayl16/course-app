@@ -1,1 +1,1 @@
-# Islam4Kids - online learning platform.
+Islam4Kids - free online learning platform.
