@@ -18,7 +18,7 @@
         Signed up
         = time_ago_in_words(@user.created_at)
         ago
-      - if current_user.has_role?(:admin) || @user = current_user
+      - if current_user.has_role?(:admin) || @user.id == current_user.id
         .card-footer
           %b= 'email'.humanize + ":"
           = @user.email
@@ -56,11 +56,13 @@
           .fa.fa-user-graduate
           Students:
           = @user.students.count
-      .card-footer
-        - @user.roles.each do |role|
-          .badge.badge-info
-            = role.name
-        - if policy(@user).edit?
+      - if current_user.has_role?(:admin) || @user == current_user
+        .card-footer
+          Current roles:
+          - @user.roles.each do |role|
+            .badge.badge-info
+              = role.name
+          .row
           = link_to 'Edit roles', edit_user_path(@user), class: 'btn btn-sm btn-warning'
 
     %p
@@ -73,11 +75,12 @@
           - @courses_teaching.each do |course|
             .row
             = link_to course.title, course_path(course)
-    - if current_user.has_role?(:student)
-      .card.shadow
-        .card-header
-          %b Courses: Learning
-        .card-body
-          - @courses_learning.each do |enrollment|
-            .row
-            = link_to enrollment.course.title, course_path(enrollment.course)
+    - if current_user.has_role?(:admin) || @user == current_user
+      - if current_user.has_role?(:student)
+        .card.shadow
+          .card-header
+            %b Courses: Learning
+          .card-body
+            - @courses_learning.each do |enrollment|
+              .row
+              = link_to enrollment.course.title, course_path(enrollment.course)
