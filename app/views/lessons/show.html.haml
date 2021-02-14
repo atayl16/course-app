@@ -1,6 +1,6 @@
 - content_for :title do
   = @course.title
-/
+
   Lesson
   #{@lesson.row_order_rank + 1}.
   = @lesson.title
@@ -28,39 +28,47 @@
         /  /%iframe{:allow => "autoplay; fullscreen", :allowfullscreen => "", :frameborder => "0", :height => "427", :src => "https://player.vimeo.com/video/#{@lesson.vimeo}", :width => "640"}
 
         = @lesson.content
-    
+
       - if policy(@lesson).edit?
         .card-footer
           = link_to edit_course_lesson_path(@course, @lesson), class: 'btn btn-sm btn-warning mr-1' do
             .fa.fa-edit
           = link_to [@course, @lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do
             .fa.fa-trash
-      .card-footer
-        - unless @lesson.prev.nil?
-          .float-left
-            = link_to course_lesson_path(@course, @lesson.prev), class: 'btn btn-sm btn-info' do
-              .fa.fa-arrow-left
-              Previous
-        - unless @lesson.next.nil?
-          .float-right
-            = link_to course_lesson_path(@course, @lesson.next), class: 'btn btn-sm btn-info' do
-              .fa.fa-arrow-right
-              Next
+          - unless @lesson.prev.nil?
+            .float-left
+              = link_to course_lesson_path(@course, @lesson.prev), class: 'btn btn-sm btn-info' do
+                .fa.fa-arrow-left
+                Previous
+          - unless @lesson.next.nil?
+            .float-right
+              = link_to course_lesson_path(@course, @lesson.next), class: 'btn btn-sm btn-info' do
+                .fa.fa-arrow-right
+                Next
 
-    %p
-    %h4
-      .fa.fa-comment
-      Comments:
-      = @lesson.comments_count
-    .card.shadow
-      .card-header
-        New comment
-      .card-body
-        = render 'lessons/comments/form'
-    %p
-    - @comments.each do |comment|
-      = render 'lessons/comments/comment', comment: comment
-      %p
+          %p
+    - if current_user
+      - if policy(@course).student_or_admin?
+        .card.shadow
+          .card-header
+            .fa.fa-comment
+            Do you have a comment, suggestion or feedback for the teacher?
+          .card-body
+            .card.body
+              = render 'lessons/comments/form'
+          %p
+      - if current_user.has_role?(:teacher || :admin)
+        .card.shadow
+          .card-header
+            %h4
+            .fa.fa-comment
+            Comments:
+            = @lesson.comments_count
+          .card-body
+            - @comments.each do |comment|
+              = render 'lessons/comments/comment', comment: comment
+              %p
+
 
   .col-lg-4
     .list-group.shadow

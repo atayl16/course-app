@@ -58,5 +58,5 @@ Rails.application.routes.draw do
    get 'charts/users_per_day', to: 'charts#users_per_day'
    get 'charts/enrollments_per_day', to: 'charts#enrollments_per_day'
    get 'charts/course_popularity', to: 'charts#course_popularity'
-  
+
 end

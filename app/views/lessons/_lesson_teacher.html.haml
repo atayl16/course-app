@@ -6,9 +6,9 @@
   %b
     #{lesson.row_order_rank + 1}.
   = lesson.title
-.row
-- unless lesson.comments_count.zero?
-  - if current_user
-    - if current_user.has_role?(:teacher || :admin)
-      .fa.fa-comment
-      = lesson.comments_count
+  .row
+  - unless lesson.comments_count.zero?
+    - if current_user
+      - if current_user.has_role?(:teacher || :admin)
+        .fa.fa-comment
+        = lesson.comments_count

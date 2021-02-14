@@ -5,11 +5,11 @@ class LessonPolicy < ApplicationPolicy
     end
   end
 
-  def show?
-    @user.has_role?(:admin) || 
-      @record.course.user == @user || 
-      @record.course.bought(@user) == true
-  end
+  # def show?
+  #   @user.has_role?(:admin) ||
+  #     @record.course.user == @user ||
+  #     @record.course.bought(@user) == true
+  # end
 
   def new?
     @record.course.user == @user

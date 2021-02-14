@@ -65,6 +65,15 @@
                 - chapter.lessons.rank(:row_order).each do |lesson|
                   .list-group-item
                     = render 'lessons/lesson_student', lesson: lesson
+      -else
+        .list-group.shadow
+          - @chapters.each do |chapter|
+            .list-group-item.list-group-item-secondary
+              = render 'chapters/chapter_preview', chapter: chapter
+              .list-group
+                - chapter.lessons.rank(:row_order).each do |lesson|
+                  .list-group-item
+                    = render 'lessons/lesson_student', lesson: lesson
     - else
       .list-group.shadow
         - @chapters.each do |chapter|
@@ -76,25 +85,25 @@
                   = render 'lessons/lesson_preview', lesson: lesson
 
     %br
-    %h4
-      .far.fa-comment
-      = pluralize(@reviews.count, 'review')
+    - if current_user
+      %h4
+        .far.fa-comment
+        = pluralize(@reviews.count, 'review')
 
-    - @reviews.each do |enrollment|
-      = render 'enrollments/enrollment', enrollment: enrollment
-      %p
-
+      - @reviews.each do |enrollment|
+        = render 'enrollments/enrollment', enrollment: enrollment
+        %p
   .col-lg-4.order-0.order-lg-1
     .sticky-top
       = render 'courses/course', course: @course
     %p
 
-/%hr
-/%h4
-/  .fa.fa-graduation-cap
-/  Related Courses
-/.row
-/- @course.similiar_courses.each do |course|
-/  .col-md-6
-/    = render 'courses/course', course: course
-/    %p
+%hr
+%h4
+  .fa.fa-graduation-cap
+  Related Courses
+.row
+  - @course.similiar_courses.each do |course|
+    .col-md-4
+      = render 'courses/course', course: course
+      %p

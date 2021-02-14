@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_lesson, only: [:show, :edit, :update, :destroy, :delete_video]
 
   def sort
@@ -17,11 +18,13 @@ class LessonsController < ApplicationController
   end
 
   def show
-    authorize @lesson
-    current_user.view_lesson(@lesson)
+    #authorize @lesson
     @chapters = @course.chapters.rank(:row_order).includes(:lessons, lessons: [:user_lessons])
     @comment = Comment.new
     @comments = @lesson.comments.order(created_at: :desc)
+    if current_user
+      current_user.view_lesson(@lesson)
+    end
   end
 
   def new
