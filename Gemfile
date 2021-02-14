@@ -34,6 +34,10 @@ group :test do
   gem 'factory_bot_rails'
 end
 
+group :production do
+  gem 'wkhtmltopdf-heroku'
+end
+
 gem "haml-rails", "~> 2.0"
 gem "simple_form"
 gem "faker"
