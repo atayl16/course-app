@@ -6,14 +6,13 @@
 
 
 // Only images
-//
-// window.addEventListener("trix-file-accept", function(event) {
-//  const acceptedTypes = ['image/jpeg', 'image/png', ]
-//  if (!acceptedTypes.includes(event.file.type)) {
-//    event.preventDefault()
-//    alert("Only support attachment of jpeg or png files")
-//  }
-// })
+window.addEventListener("trix-file-accept", function(event) {
+ const acceptedTypes = ['image/jpeg', 'image/png']
+ if (!acceptedTypes.includes(event.file.type)) {
+   event.preventDefault()
+   alert("Only jpeg or png files are supported")
+ }
+})
 
 // File size
  window.addEventListener("trix-file-accept", function(event) {
