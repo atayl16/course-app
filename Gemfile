@@ -34,10 +34,6 @@ group :test do
   gem 'factory_bot_rails'
 end
 
-group :production do
-  gem 'wkhtmltopdf-heroku', '2.12.6.0'
-end
-
 gem "haml-rails", "~> 2.0"
 gem "simple_form"
 gem "faker"
@@ -58,7 +54,7 @@ gem "active_storage_validations"
 gem "image_processing"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary", group: :development
-gem "wkhtmltopdf-heroku", group: :production
+gem "wkhtmltopdf-heroku", '2.12.6.0', group: :production
 gem "wicked"
 gem "omniauth-google-oauth2"
 gem "cocoon"
