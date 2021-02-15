@@ -35,7 +35,7 @@ group :test do
 end
 
 group :production do
-  gem 'wkhtmltopdf-heroku', '2.12.5.0'
+  gem 'wkhtmltopdf-heroku', '2.12.6.0'
 end
 
 gem "haml-rails", "~> 2.0"
