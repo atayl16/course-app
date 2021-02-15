@@ -61,7 +61,7 @@ module CoursesHelper
     if current_user
       if user_course.any?
         if course.progress(current_user) == 100
-          link_to certificate_enrollment_path(user_course.first, format: :html) do
+          link_to certificate_enrollment_path(user_course.first) do
             "<i class='text-danger fa fa-scroll'></i>".html_safe + " " +
               "Certificate of Completion"
           end

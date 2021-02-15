@@ -11,14 +11,17 @@
         This is to certify that
       -  if @enrollment.user.display_name?
         %h2
-          = @enrollment.user.display_name
+          %u
+            = @enrollment.user.display_name
       -  else
         %h2
-          = @enrollment.user.email
+          %u
+            = @enrollment.user.email
       %h3
         has successfully completed the course
       %h2
-        = @enrollment.course.title
+        %u
+          = @enrollment.course.title
       %h3
         on the Islam4kids Academy platform
 
@@ -28,9 +31,9 @@
         %h3
         = image_tag wicked_pdf_asset_base64('logo_color.png'), height: "140", width: "auto"
         %p
-        www.islam4kids.academy
+        %a{:href => "https://www.islam4kids.academy/"}> www.islam4kids.academy
         %br
-        www.islam4kids.org
+        %a{:href => "https://www.islam4kids.org/"}> www.islam4kids.org
       %br
       %p
       %b Registration date:
