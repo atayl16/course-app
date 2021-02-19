@@ -5,7 +5,7 @@
 
   .form-inputs
     = f.input :title, input_html: { autocomplete: 'off' }
-    = f.association :chapter, collection: @course.chapters, include_blank: false
+    = f.input :chapter_id, collection: @course.chapters, selected: params[:chapter_id], value_method: :slug, include_blank: false
     = f.input :content, as: :rich_text_area
     = f.input :vimeo
 

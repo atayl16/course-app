@@ -34,7 +34,11 @@ Rails.application.routes.draw do
       put :sort
     end
 
-    resources :lessons, except: [:index] do
+    resources :chapters do
+      resources :lessons, only: [:new, :create]
+    end
+
+    resources :lessons, except: [:index, :new, :create] do
       resources :comments, except: [:index, :show]
       put :sort
       member do

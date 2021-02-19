@@ -9,8 +9,7 @@
   = @course.title
 |
 .far.fa-check-square
-= link_to new_course_lesson_path(@course, @lesson) do
-  New lesson
+  Create a New lesson
 
 .card.shadow
   .card-header
@@ -18,6 +17,6 @@
       .far.fa-check-square
       New lesson
   .card-body
-    = render 'form'
+    = render 'formnew'
   .card-footer
     = link_to 'Back to course', course_path(@course)

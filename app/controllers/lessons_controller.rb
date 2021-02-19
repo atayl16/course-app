@@ -30,7 +30,9 @@ class LessonsController < ApplicationController
   def new
     @lesson = Lesson.new
     @course = Course.friendly.find(params[:course_id])
+    @chapter = Chapter.friendly.find(params[:chapter_id])
     @lesson.course_id = @course.id #for authorization
+    @lesson.chapter_id = @chapter.id
     authorize @lesson
   end
 
@@ -38,6 +40,8 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
     @course = Course.friendly.find(params[:course_id])
     @lesson.course_id = @course.id
+    @chapter = Chapter.friendly.find(params[:chapter_id])
+    @lesson.chapter_id = @chapter.id
 
     authorize @lesson
     if @lesson.save
@@ -70,6 +74,9 @@ class LessonsController < ApplicationController
 
   def set_lesson
     @course = Course.friendly.find(params[:course_id])
+    if @chapter
+      @chapter = Chapter.friendly.find(params[:chapter_id])
+    end
     @lesson = Lesson.friendly.find(params[:id])
   end
 
