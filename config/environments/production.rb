@@ -18,7 +18,7 @@ Rails.application.configure do
       deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
       email_prefix: "[PREFIX] ",
       sender_address: %("Islam4Kids error" <no-reply@Islam4Kids.academy>),
-      exception_recipients: %w[inspirebyexample0@gmail.com]
+      exception_recipients: %w[support@islam4kids.academy]
     }
   # Settings specified here will take precedence over those in config/application.rb.
 
