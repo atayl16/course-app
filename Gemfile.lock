@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 9efd205e008661b88eddf21c8b6cf52f564aa140
+  revision: 4e7011fe8ac68b74621336b07f894879c8da202d
   branch: main
   specs:
     rspec-expectations (3.11.0.pre)
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: eadd0e63ce4522cad191e9034dc0f877b11abd4d
+  revision: 97c972be57f2c060a4a7fb8a3c5700a5ede693f0
   branch: main
   specs:
     rspec-mocks (3.11.0.pre)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: 89a9e1e24ee90744f8b6e6d7ea8ecb1a810e2cc8
+  revision: 324e98ed4cb8a3680ef369ccb729cb86970975db
   branch: main
   specs:
     rspec-rails (4.1.0.pre)
@@ -121,7 +121,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
     aws-eventstream (1.1.0)
-    aws-partitions (1.427.0)
+    aws-partitions (1.428.0)
     aws-sdk-core (3.112.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -244,7 +244,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    omniauth (2.0.2)
+    omniauth (2.0.3)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
       rack-protection
@@ -298,7 +298,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-erd (1.6.0)
+    rails-erd (1.6.1)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
       choice (~> 0.2.0)
@@ -328,7 +328,7 @@ GEM
       railties (>= 5.0)
     rexml (3.2.4)
     rolify (5.3.0)
-    rubocop (1.8.1)
+    rubocop (1.10.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -382,8 +382,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    standard (0.12.0)
-      rubocop (= 1.8.1)
+    standard (0.13.0)
+      rubocop (= 1.10.0)
       rubocop-performance (= 1.9.2)
     stripe (5.29.1)
     temple (0.8.2)
@@ -420,8 +420,6 @@ GEM
       activesupport
     wkhtmltopdf-binary (0.12.6.5)
     wkhtmltopdf-heroku (2.12.6.0)
-    wysiwyg-rails (3.2.6)
-      railties (>= 3.2.6, < 7.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.4.2)
@@ -481,7 +479,6 @@ DEPENDENCIES
   wicked_pdf
   wkhtmltopdf-binary
   wkhtmltopdf-heroku (= 2.12.6.0)
-  wysiwyg-rails
 
 RUBY VERSION
    ruby 2.7.2p137
