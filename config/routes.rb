@@ -63,4 +63,6 @@ Rails.application.routes.draw do
    get 'charts/enrollments_per_day', to: 'charts#enrollments_per_day'
    get 'charts/course_popularity', to: 'charts#course_popularity'
 
+   get '*unmatched_route', :to => 'application#render_404'
+
 end

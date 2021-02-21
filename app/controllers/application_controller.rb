@@ -8,14 +8,23 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   # save current_user using gem public_activity
-  include PublicActivity::StoreController 
+  include PublicActivity::StoreController
 
   include Pagy::Backend
 
   before_action :set_global_variables
   def set_global_variables
     # navbar search
-    @ransack_courses = Course.ransack(params[:courses_search], search_key: :courses_search) 
+    @ransack_courses = Course.ransack(params[:courses_search], search_key: :courses_search)
+  end
+
+
+  def render_404(exception = nil)
+    if exception
+        logger.info "Rendering 404: #{exception.message}"
+    end
+
+    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 
   private
@@ -25,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
 
   # pundit
-  def user_not_authorized 
+  def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
     redirect_to(request.referrer || root_path)
   end
