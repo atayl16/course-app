@@ -13,7 +13,8 @@
 
     = f.input :short_description, :placeholder => "Short Course Description"
 
-    = f.input :description, as: :rich_text_area
+    = f.text_area :description, :id => "full-featured-non-premium"
+
 
     = f.label :tags
     = f.select :tag_ids, @tags.all.pluck(:name, :id), {}, { multiple: true, class: "selectize-tags" }

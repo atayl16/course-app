@@ -62,3 +62,4 @@ gem "omniauth-google-oauth2"
 gem "cocoon"
 gem "stripe"
 gem 'sitemap_generator'
+gem 'tinymce-rails'
