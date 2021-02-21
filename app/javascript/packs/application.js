@@ -1,12 +1,9 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+global.$ = require("jquery")
+require("jquery-ui")
 
 import 'bootstrap/dist/js/bootstrap'
 import "bootstrap/dist/css/bootstrap";
@@ -22,15 +19,12 @@ require("stylesheets/application.scss")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-require("trix")
+// require("trix")
 require("@rails/actiontext")
+// import "../trix-editor-overrides"
 
 require("chartkick") // yarn add chartkick chart.js
 require("chart.js")
-
-import "../trix-editor-overrides"
-
-require("jquery-ui-dist/jquery-ui");
 
 require("selectize")
 
@@ -38,6 +32,7 @@ import "cocoon-js";
 
 import "youtube"
 $( document ).on('turbolinks:load', function() {
+ tinymce.remove();
   tinymce.init({
     selector: 'textarea#full-featured-non-premium',
     plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
@@ -90,16 +85,9 @@ $( document ).on('turbolinks:load', function() {
     template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
     height: 520,
     image_caption: true,
-    quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
     noneditable_noneditable_class: "mceNonEditable",
-    toolbar_mode: 'sliding',
-    contextmenu: "link image imagetools table",
-   });
-});
-
-
-
-$(document).on('turbolinks:load', function(){
+    toolbar_mode: 'sliding'
+  });
 
   $('.chapter-sortable').sortable({
     axis        : "y",
