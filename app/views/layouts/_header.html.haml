@@ -20,6 +20,10 @@
 
     - if current_user
       %ul.navbar-nav.mr-right
+        - unless current_user.has_role?(:teacher)
+          = link_to teach_path, class: 'nav-link' do
+            .fa.fa-chalkboard-teacher
+            Become a Teacher
         - if current_user.has_role?(:admin)
           %li.nav-item{class: "#{'active font-weight-bold' if current_page?(activity_path)}"}
           = link_to activity_path, class: 'nav-link' do
