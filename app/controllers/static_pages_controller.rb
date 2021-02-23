@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:landing_page, :privacy_policy]
+  skip_before_action :authenticate_user!, except: [:analytics]
 
   def landing_page
     @latest_good_reviews = Enrollment.reviewed.latest_good_reviews.limit(2)

@@ -130,7 +130,7 @@ $( document ).on('turbolinks:load', function() {
       return false;
   });
 
-  if ($('.selectize')){
+    if ($('.selectize')){
       $('.selectize').selectize({
           sortField: 'text'
       });
