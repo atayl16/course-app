@@ -51,26 +51,26 @@
       /= Course.count
       /online courses
       .row
-      %small Explore a variety of recent topics
+      %small Explore a variety of Islamic subjects
   .card
     .card-body
       %h1
         .fa.fa-chalkboard-teacher
         /.fa.fa-brain
-      = pluralize(Course.distinct.count(:user_id), 'expert instructors')
+      = pluralize(Course.distinct.count(:user_id), 'teachers')
       /= Course.distinct.count(:user_id)
       /expert instructors
       .row
-      %small Find the right instructor for you
+      %small Find the right teacher for you
   .card
     .card-body
       %h1
         .fa.fa-user-graduate
-      = pluralize(User.count, 'active learners')
+      = pluralize(User.count, 'active students')
       /= User.count
       /active learners
       .row
-      %small Join the knowledge sharing community
+      %small Join students from all over the world
   .card
     .card-body
       %h1
@@ -81,17 +81,21 @@
 
 %p
 
-%h2
-  %b
-  .fa.fa-tags
-  Top Categories
-- @popular_tags.each do |tag|
-  = link_to courses_path(courses_search: {course_tags_tag_id_eq: tag.id}) do
-    .mt-1.btn.btn-info
-      = tag.name
-      %span.badge.badge-light
-        = tag.course_tags_count
+.card
+  .card-header
+    %h2
+      %b
+      .fa.fa-tags
+      Top Categories
+  .card-body
+    - @popular_tags.each do |tag|
+      = link_to courses_path(courses_search: {course_tags_tag_id_eq: tag.id}) do
+        .mt-1.btn.btn-info
+          = tag.name
+          %span.badge.badge-light
+            = tag.course_tags_count
 %hr
+
 
 - if current_user
   - if current_user.enrollments.any?
@@ -144,14 +148,14 @@
       %p
 %hr
 
-%h2
-  .fa.fa-comment
-  What our students have to say
-.row
-  - @latest_good_reviews.each do |enrollment|
-    .col-md-6
-      = render 'enrollments/enrollment', enrollment: enrollment
-      %p
+-# %h2
+-#   .fa.fa-comment
+-#   What our students have to say
+-# .row
+-#   - @latest_good_reviews.each do |enrollment|
+-#     .col-md-6
+-#       = render 'enrollments/enrollment', enrollment: enrollment
+-#       %p
 %br
 .card-group.shadow
   .card
@@ -160,14 +164,14 @@
         .fa.fa-clock
         Go at your own pace
       %small
-        Enjoy unlimited access to courses as long as you are active
+        Enjoy unlimited access to courses anytime, from anywhere
   .card
     .card-body
       %b
         .far.fa-check-circle
         Learn from anywhere
       %small
-        Select from top instructors around the world
+        Select teachers from around the world who care
   .card
     .card-body
       %b

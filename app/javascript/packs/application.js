@@ -44,18 +44,6 @@ $( document ).on('turbolinks:load', function() {
     autosave_retention: "2m",
     image_advtab: true,
     content_css: '//www.tiny.cloud/css/codepen.min.css',
-    link_list: [
-      { title: 'My page 1', value: 'http://www.tinymce.com' },
-      { title: 'My page 2', value: 'http://www.moxiecode.com' }
-    ],
-    image_list: [
-      { title: 'My page 1', value: 'http://www.tinymce.com' },
-      { title: 'My page 2', value: 'http://www.moxiecode.com' }
-    ],
-    image_class_list: [
-      { title: 'None', value: '' },
-      { title: 'Some class', value: 'class-name' }
-    ],
     importcss_append: true,
     file_picker_callback: function (callback, value, meta) {
       /* Provide file and text for the link dialog */
@@ -77,7 +65,11 @@ $( document ).on('turbolinks:load', function() {
     image_caption: true,
     noneditable_noneditable_class: "mceNonEditable",
     toolbar_mode: 'sliding',
-    min_height: 350
+    min_height: 350,
+    image_dimensions: false,
+          image_class_list: [
+            {title: 'Responsive', value: 'img-responsive'}
+          ]
   });
 
   $('.chapter-sortable').sortable({

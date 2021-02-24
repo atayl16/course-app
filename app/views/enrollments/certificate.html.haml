@@ -1,6 +1,6 @@
 %center
   .jumbotron.shadow.parallax
-    %div{:style => "padding:20px; text-align:center; border: 10px solid #563d7c"}
+    %div{:style => "padding:20px; text-align:center; border: 10px solid #563d7c; background: #ffffff"}
 
       %br
       %br
@@ -40,9 +40,9 @@
       #{@enrollment.created_at.strftime('%d-%b-%Y')}
 
       %p
-      %b Certificate id:
+      %b Certificate ID:
       #{@enrollment.slug}
 
       %p
-      %b Certificate url:
+      %b Certificate URL:
       #{request.base_url}#{request.original_fullpath}
