@@ -260,8 +260,8 @@ Devise.setup do |config|
   #config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :client).to_s, Rails.application.credentials.dig(:facebook, :secret).to_s, scope: "email,public_profile"
   #config.omniauth :github, (Rails.application.credentials[Rails.env.to_sym][:github][:client]).to_s, (Rails.application.credentials[Rails.env.to_sym][:github][:secret]).to_s, scope: "user,public_repo"
 
-  google_client_id = Rails.application.credentials.dig(:google_oauth2, :client_id).to_s
-  google_client_secret = Rails.application.credentials.dig(:google_oauth2, :client_secret).to_s
+  google_client_id = Rails.application.credentials.dig(:google_oauth2_client_id).to_s
+  google_client_secret = Rails.application.credentials.dig(:google_oauth2_client_secret).to_s
   config.omniauth :google_oauth2, google_client_id, google_client_secret, scope: 'userinfo.email,userinfo.profile', skip_jwt: true
 
   # ==> Warden configuration
