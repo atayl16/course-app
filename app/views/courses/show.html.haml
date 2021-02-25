@@ -6,14 +6,14 @@
 = link_to 'Courses', courses_path
 |
 = link_to course_path(@course) do
-  .fa.fa-graduation-cap
+  .fa.fa-book-open
   = @course.title
 
 .row
   .col-lg-8.order-1.order-lg-1
     .jumbotron.shadow
       %h3
-        .fa.fa-graduation-cap
+        .fa.fa-book-open
         = @course.title
       %hr
       .far.fa-bookmark
@@ -25,10 +25,6 @@
       .far.fa-clock
       Created
       = @course.created_at.strftime("%m/%Y")
-      .row
-      .far.fa-clock
-      Last updated
-      = @course.updated_at.strftime("%m/%Y")
       .row
       .fa.fa-globe-africa
       = @course.language
@@ -90,7 +86,7 @@
     %br
     - if current_user
       %h4
-        .far.fa-star
+        .fa.fa-star
         = pluralize(@reviews.count, 'review')
 
       - @reviews.each do |enrollment|
@@ -103,7 +99,7 @@
 
 %hr
 %h4
-  .fa.fa-graduation-cap
+  .fa.fa-book-open
   Related Courses
 .row
   - @course.similiar_courses.each do |course|

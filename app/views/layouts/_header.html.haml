@@ -1,7 +1,7 @@
 %nav.navbar.navbar-expand-lg.navbar-light.fixed-top{:style => "background-color: #e3f2fd;"}
   %a.navbar-brand{:href => "/"}
 
-    /.fa.fa-graduation-cap
+    /.fa.fa-book-open
     Islam4Kids Academy
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
@@ -9,13 +9,13 @@
     /- if current_user && current_user.has_role?(:admin)
     %ul.navbar-nav.mr-auto
       = long_active_link_to root_path do
-        .fa.fa-home
+        .fa.fa-school
         Home
       = long_active_link_to tags_path do
         .fa.fa-tags
         Tags
       = long_active_link_to courses_path do
-        .fa.fa-graduation-cap
+        .fa.fa-book-open
         Courses
 
     - if current_user
@@ -35,7 +35,7 @@
               Admin
             .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "adminDropdown"}
               = link_to unapproved_courses_path, class: "dropdown-item #{'active' if current_page?(unapproved_courses_path)}" do
-                .fa.fa-graduation-cap
+                .fa.fa-book-open
                 Courses: Unapproved
                 .badge.badge-danger
                   = Course.unapproved.published.count
@@ -65,7 +65,7 @@
                 .fa.fa-plus
                 Create Course
               = link_to teaching_courses_path, class: "dropdown-item #{'active' if current_page?(teaching_courses_path)}" do
-                .fa.fa-graduation-cap
+                .fa.fa-book-open
                 Courses: Teaching
                 .badge.badge-danger
                   = current_user.courses_count
@@ -79,11 +79,11 @@
         - if current_user.has_role?(:student)
           %li.nav-item.dropdown
             %a#studentDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              .fa.fa-graduation-cap
+              .fa.fa-book-open
               Learn
             .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "studentDropdown"}
               = link_to learning_courses_path, class: "dropdown-item #{'active' if current_page?(learning_courses_path)}" do
-                .fa.fa-graduation-cap
+                .fa.fa-book-open
                 Courses: Learning
                 .badge.badge-danger
                   = current_user.enrollments_count

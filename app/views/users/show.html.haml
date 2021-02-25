@@ -41,7 +41,7 @@
           = @user.last_sign_in_at
           .row
       .card-footer
-        .fa.fa-graduation-cap
+        .fa.fa-book-open
         Courses created:
         = @user.courses_count
         .row
@@ -58,7 +58,7 @@
         = @user.user_lessons_count
         .row
         - if current_user.has_role?(:teacher)
-          .fa.fa-user-graduate
+          .fa.fa-child
           Students:
           = @user.students.count
       - if current_user.has_role?(:admin) || @user == current_user

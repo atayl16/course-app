@@ -1,6 +1,6 @@
 .card.shadow
   .card-header
-    .fa.fa-graduation-cap
+    .fa.fa-book-open
     = link_to course.title, course_path(course)
   - if course.avatar.attached?
     .card-img-top
@@ -26,7 +26,7 @@
         .text-warning.fa.fa-star
         %b= course.average_rating
         (
-        .fa.fa-user-graduate
+        .fa.fa-child
         = course.enrollments_count
         )
         .fa.fa-tasks

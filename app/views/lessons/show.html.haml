@@ -49,7 +49,7 @@
               Next Lesson
       .card-footer
         = link_to course_path(@course), class: 'btn btn-sm btn-secondary' do
-          .fa.fa-graduation-cap
+          .fa.fa-book-open
           Back to Course -
           = @course.title
 
@@ -82,7 +82,7 @@
   .col-lg-4
     .list-group.shadow
       .list-group-item
-        .fa.fa-graduation-cap
+        .fa.fa-book-open
         = link_to course_path(@lesson.course) do
           = @lesson.course.title
         .row
