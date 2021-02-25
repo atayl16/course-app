@@ -93,7 +93,7 @@
   .card-body
     - @popular_tags.each do |tag|
       = link_to courses_path(courses_search: {course_tags_tag_id_eq: tag.id}) do
-        .mt-1.btn.btn-info
+        .mt-1.btn.btn-danger
           = tag.name
           %span.badge.badge-light
             = tag.course_tags_count
@@ -104,8 +104,9 @@
   - if current_user.enrollments.any?
     %h2
       %b
-      .fa.fa-child
-      = link_to 'Continue learning ', learning_courses_path
+      = link_to learning_courses_path, class: "btn btn-success btn-lg btn-block" do
+        .fa.fa-child{:style => "color:white !important;"}
+        Continue Learning
     .row
       - @learning_courses.each do |course|
         .col-md-6
@@ -114,8 +115,9 @@
     %hr
   - if current_user.courses.any?
     %h2
-      .fa.fa-chalkboard-teacher
-      = link_to 'You are teaching', teaching_courses_path
+      = link_to teaching_courses_path, class: "btn btn-danger btn-lg btn-block" do
+        .fa.fa-chalkboard-teacher{:style => "color:white !important;"}
+        You are teaching
     .row
       - @teaching_courses.each do |course|
         .col-md-6
@@ -124,8 +126,9 @@
     %hr
 
 %h2
-  .fa.fa-chart-line
-  = link_to 'Popular courses', courses_path(courses_search: {s: 'enrollments_count desc'})
+  = link_to courses_path(courses_search: {s: 'enrollments_count desc'}), class: "btn btn-primary btn-lg btn-block" do
+    .fa.fa-chart-line{:style => "color:white !important;"}
+    Popular Courses
 .row
   - @popular.each do |course|
     .col-md-6
@@ -133,8 +136,9 @@
       %p
 %hr
 %h2
-  .fa.fa-star
-  = link_to 'Top rated courses', courses_path(courses_search: {s: 'average_rating desc'})
+  = link_to courses_path(courses_search: {s: 'average_rating desc'}), class: "btn btn-warning btn-lg btn-block" do
+    .fa.fa-star{:style => "color:white !important;"}
+    Top Rated Courses
 .row
   - @top_rated.each do |course|
     .col-md-6
@@ -142,8 +146,9 @@
       %p
 %hr
 %h2
-  .fa.fa-clock
-  = link_to 'Latest courses', courses_path(courses_search: {s: 'created_at desc'})
+  = link_to courses_path(courses_search: {s: 'created_at desc'}), class: "btn btn-custom-purple btn-lg btn-block" do
+    .fa.fa-clock{:style => "color:white !important;"}
+    Latest Courses
 .row
   - @latest.each do |course|
     .col-md-6
