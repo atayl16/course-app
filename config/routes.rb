@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "faq", to: "static_pages#FAQ"
   get "teach", to: "static_pages#become_teacher"
 
-  get '/sitemap.xml', to: redirect("https://Islam4Kids-public.s3.eu-central-1.amazonaws.com/sitemap.xml")
+  get '/sitemap.xml', to: redirect("https://atayl16-course-app.s3.amazonaws.com/sitemap.xml")
 
   resources :enrollments do
     get :teaching, on: :collection

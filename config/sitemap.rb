@@ -1,9 +1,9 @@
 require 'aws-sdk-s3'
 SitemapGenerator::Sitemap.compress = false
 # Your website's host name
-SitemapGenerator::Sitemap.default_host = "https://www.Islam4kids.org"
+SitemapGenerator::Sitemap.default_host = "https://www.Islam4kids.academy"
 # The remote host where your sitemaps will be hosted
-SitemapGenerator::Sitemap.sitemaps_host = "https://Islam4Kids-public.s3.eu-central-1.amazonaws.com/"
+SitemapGenerator::Sitemap.sitemaps_host = "https://atayl16-course-app.s3.amazonaws.com/sitemap.xml"
 
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
   "atayl16-course-app",

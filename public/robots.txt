@@ -1,4 +1,4 @@
-Sitemap: https://Islam4Kids-public.s3.eu-central-1.amazonaws.com/sitemap.xml
+Sitemap: https://atayl16-course-app.s3.amazonaws.com/sitemap.xml
 
 User-Agent: *
 Disallow: /auth/facebook
