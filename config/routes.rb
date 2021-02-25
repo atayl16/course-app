@@ -52,7 +52,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :edit, :show, :update]
 
-
+  get '/courses/:course_id/chapters/:chapter_id/lessons', to: 'lessons#new'
   namespace :charts do
     get "users_per_day"
     get "enrollments_per_day"
