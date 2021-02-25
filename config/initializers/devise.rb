@@ -260,7 +260,7 @@ Devise.setup do |config|
   #config.omniauth :facebook, Rails.application.credentials.dig(:facebook, :client).to_s, Rails.application.credentials.dig(:facebook, :secret).to_s, scope: "email,public_profile"
   #config.omniauth :github, (Rails.application.credentials[Rails.env.to_sym][:github][:client]).to_s, (Rails.application.credentials[Rails.env.to_sym][:github][:secret]).to_s, scope: "user,public_repo"
 
-  config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2_client_id.to_s, Rails.application.credentials.google_oauth2_client_secret.to_s, scope: 'userinfo.email,userinfo.profile'
+  config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2_client_id, Rails.application.credentials.google_oauth2_client_secret, scope: 'userinfo.email,userinfo.profile'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
