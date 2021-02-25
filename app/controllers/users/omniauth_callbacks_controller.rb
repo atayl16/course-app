@@ -3,10 +3,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     handle_auth "Google"
   end
 
-  # def github
-  #   handle_auth "Github"
-  # end
-  #
   # def facebook
   #   handle_auth "Facebook"
   # end

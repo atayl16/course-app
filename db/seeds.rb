@@ -20,10 +20,10 @@ end
 
 PublicActivity.enabled = false
 
-5.times do
+100.times do
   Course.create!([{
-    title: Faker::Educator.course_name,
-    short_description: Faker::Quote.famous_last_words,
+    title: Faker::Lorem.sentence(word_count: 2, supplemental: true, random_words_to_add: 3),
+    short_description: Faker::Lorem.sentence(word_count: 6, supplemental: false, random_words_to_add: 4),
     description: Faker::Lorem.paragraph,
     user: User.find_by(email: "admintest@example.com"),
     language: "English",
@@ -33,47 +33,6 @@ PublicActivity.enabled = false
     approved: true,
     published: true
   }])
-end
-
-5.times do
-  Course.create!([{
-    title: Faker::Educator.course_name,
-    short_description: Faker::Lorem.sentence,
-    description: Faker::Lorem.paragraph,
-    user: User.find_by(email: "studentteacher@example.com"),
-    language: Faker::ProgrammingLanguage.name,
-    level: "Beginner",
-    price: 0,
-    approved: true,
-    published: true
-  }])
-end
-
-Course.all.each do
-  Enrollment.create!([{
-    user: User.find_by(email: "student@example.com"),
-    course: course,
-    price: 0
-    }])
-end
-
-Course.all.each do
-  5.times do
-    row = [0...4]
-    Chapter.create!([{
-      row_order: row.sample(5),
-      course_id: course.id,
-      title: Faker::Educator.course_name
-      }])
-  end
-end
-
-Chapter.all.each do
-  Lesson.create!([{
-    title: Faker::Lorem.sentence(word_count: 3),
-    content: Faker::Lorem.sentence,
-    chapter_id: chapter.id
-    }])
 end
 
 

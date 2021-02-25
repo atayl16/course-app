@@ -36,7 +36,6 @@ class User < ApplicationRecord
     )
 
     user.name = access_token.info.name
-    user.image = access_token.info.image
     user.provider = access_token.provider
     user.uid = access_token.uid
     user.token = access_token.credentials.token
@@ -46,6 +45,17 @@ class User < ApplicationRecord
     user.confirmed_at = Time.now # autoconfirm user from omniauth
 
     user
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if (data = session['devise.github'] && session['devise.github_data']['extra']['raw_info'])
+        user.email = data['email'] if user.email.blank?
+      end
+      if (data = session['devise.google_oauth2'] && session['devise.google_oauth2_data']['extra']['raw_info'])
+        user.email = data['email'] if user.email.blank?
+      end
+    end
   end
 
   def to_s

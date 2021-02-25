@@ -28,11 +28,14 @@
   - else
     %h3.text-shadow Join for free or login to save your progress and earn a certificate of completion
     .p-2
-    = link_to 'Register', new_user_registration_path, class: 'btn btn-custom-purple btn-lg'
-    = link_to 'Login', new_user_session_path, class: 'btn btn-custom-purple btn-lg'
-    = link_to 'Teach on Islam4Kids', teach_path, class: 'btn btn-custom-purple btn-lg'
+    = link_to 'Register', new_user_registration_path, class: 'btn btn-danger btn-lg'
+    = link_to 'Login', new_user_session_path, class: 'btn btn-warning btn-lg'
+    = link_to user_google_oauth2_omniauth_authorize_path, class: 'btn btn-info btn-lg mr-1' do
+      Continue with
+      .fab.fa-google
+    = link_to 'Teach on Islam4Kids', teach_path, class: 'btn btn-success btn-lg'
     .row
-    .row.mt-1
+    .row.mt-right
     .p-2
     .form-inline.my-2.my-lg-0
       = form_tag(courses_path, method: :get) do
