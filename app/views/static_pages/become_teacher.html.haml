@@ -26,8 +26,11 @@
   - else
     %h3.text-shadow Register or login to create your first lesson
     .p-2
-    = link_to 'Register', new_user_registration_path, class: 'btn btn-custom-purple btn-lg'
-    = link_to 'Login', new_user_session_path, class: 'btn btn-custom-purple btn-lg'
+    = link_to 'Register', new_user_registration_path, class: 'btn btn-info btn-lg'
+    = link_to 'Login', new_user_session_path, class: 'btn btn-info btn-lg'
+    = link_to user_google_oauth2_omniauth_authorize_path, class: 'btn btn-info btn-lg' do
+      Continue with
+      .fab.fa-google
     .row.mt-1
 
     .row.mt-1
