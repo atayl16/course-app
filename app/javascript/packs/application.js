@@ -32,9 +32,9 @@ $( document ).on('turbolinks:load', function() {
  tinymce.remove();
   tinymce.init({
     selector: 'textarea#full-featured-non-premium',
-    plugins: 'print preview paste importcss searchreplace autolink autosave save code visualblocks visualchars fullscreen image link media table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap autoresize emoticons',
+    plugins: 'print preview paste importcss searchreplace autolink autosave save code visualblocks visualchars fullscreen image link media charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap autoresize emoticons',
     imagetools_cors_hosts: ['picsum.photos'],
-    menubar: 'file edit view insert format tools table help',
+    menubar: 'file edit view insert format tools help',
     toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media link anchor | ltr rtl',
     toolbar_sticky: true,
     autosave_ask_before_unload: true,
@@ -43,7 +43,8 @@ $( document ).on('turbolinks:load', function() {
     autosave_restore_when_empty: false,
     autosave_retention: "2m",
     image_advtab: true,
-    content_css: '//www.tiny.cloud/css/codepen.min.css',
+    content_css: './stylesheets/application.scss',
+    content_style: "body { font-family: Arial; font-size: 18px; }",
     importcss_append: true,
     file_picker_callback: function (callback, value, meta) {
       /* Provide file and text for the link dialog */
