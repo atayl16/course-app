@@ -7,5 +7,4 @@ module LessonsHelper
       render 'lessons/lesson_student', lesson: lesson
     end
   end
-
 end

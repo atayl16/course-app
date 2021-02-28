@@ -1,0 +1,17 @@
+-# .far.fa-bookmark
+-# %b
+- if chapter.eql?(@lesson.chapter)
+  .current_chapter
+    .far.fa-bookmark
+    #{chapter.row_order_rank + 1}.
+    = chapter.title
+    .fa.fa-chevron-down
+-else
+  .far.fa-bookmark
+  %b
+  #{chapter.row_order_rank + 1}.
+  = chapter.title
+  .fa.fa-chevron-down
+.row
+.fa.fa-tasks
+= pluralize(chapter.lessons_count, 'lesson')

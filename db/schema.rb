@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_163858) do
+ActiveRecord::Schema.define(version: 2021_02_27_230533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +153,7 @@ ActiveRecord::Schema.define(version: 2021_02_07_163858) do
     t.integer "user_lessons_count", default: 0, null: false
     t.bigint "chapter_id"
     t.string "vimeo"
+    t.integer "course_order"
     t.index ["chapter_id"], name: "index_lessons_on_chapter_id"
     t.index ["course_id"], name: "index_lessons_on_course_id"
     t.index ["slug"], name: "index_lessons_on_slug", unique: true

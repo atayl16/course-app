@@ -79,13 +79,19 @@ footer {
 
 // lesson show - scrollable lessons list
 #scrollable{
-    max-height: 80vh;
+    max-height: 68vh;
     overflow-y:scroll;
     -webkit-overflow-scrolling: touch;
 }
 
 .col-lg-2 {
 background-color: #e9ecef97;
+}
+
+.current_chapter {
+  background-color: LightCyan;
+  font-weight: bold;
+  font-size: 110%;
 }
 
 .trix-content.img {

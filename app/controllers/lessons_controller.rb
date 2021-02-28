@@ -25,6 +25,7 @@ class LessonsController < ApplicationController
     if current_user
       current_user.view_lesson(@lesson)
     end
+    @lessons = @lesson.chapter.lessons.rank(:row_order)
   end
 
   def new

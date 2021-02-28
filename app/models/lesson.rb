@@ -34,6 +34,9 @@ class Lesson < ApplicationRecord
   include RankedModel
   ranks :row_order, with_same: [:course_id, :chapter_id]
 
+  belongs_to :course
+  ranks :course_order, with_same: [:course_id]
+
   def to_s
     title
   end
@@ -44,11 +47,11 @@ class Lesson < ApplicationRecord
   end
 
   def prev
-    course.lessons.where("row_order < ?", row_order).order(:row_order).last
+    chapter.lessons.where("row_order < ?", row_order).order(:row_order).last
   end
 
   def next
-    course.lessons.where("row_order > ?", row_order).order(:row_order).first
+    chapter.lessons.where("row_order > ?", row_order).order(:row_order).first || chapter.lessons.where("row_order > ?", chapter.row_order).order(:row_order).first
   end
 
 end
