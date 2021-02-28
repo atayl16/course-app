@@ -81,8 +81,9 @@
           = @lesson.course.title
         .row
         = render 'courses/progress', course: @lesson.course
-
-    %h5 Current Chapter
+    %br
+    .list-group-item
+      %h5 Current Chapter
     #accordion
       .list-group#scrollable
         .panel.panel-default
@@ -98,8 +99,9 @@
                     - else
                       %li.list-group-item.list-group-item-secondary
                         = render 'lessons/lesson_student', lesson: lesson
-    .row
-    %h5 All Chapters
+    %br
+    .list-group-item
+      %h5 All Chapters
     #accordion
       .list-group#scrollable
         - @chapters.each do |chapter|

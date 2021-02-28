@@ -51,7 +51,7 @@ class Lesson < ApplicationRecord
   end
 
   def next
-    chapter.lessons.where("row_order > ?", row_order).order(:row_order).first || chapter.lessons.where("row_order > ?", chapter.row_order).order(:row_order).first
+    chapter.lessons.where("row_order > ?", row_order).order(:row_order).first 
   end
 
 end
