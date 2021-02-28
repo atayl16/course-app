@@ -1,7 +1,7 @@
 - content_for :title do
-  Islam4Kids 
+  Islam4Kids
   |
-  Review
+  Rate
   = @enrollment.course
 
 = link_to 'Courses', courses_path
@@ -10,16 +10,17 @@
   .fa.fa-book-open
   = @enrollment.course.title
 |
-= link_to 'Add Review', edit_enrollment_path(@enrollment)
+= link_to 'Add Rating', edit_enrollment_path(@enrollment)
 
 .card.shadow
   .card-header
     %h3
       .text-warning.fa.fa-star
-      Add a Review
+      Rating 
+      = @enrollment.course.title
   .card-body
     = render 'form'
   .card-footer
-    = link_to 'Show Review', @enrollment
+    = link_to 'Show Rating', @enrollment
     \|
-    = link_to 'Back to course', course_path(@enrollment.course)
+    = link_to 'Back to Course', course_path(@enrollment.course)

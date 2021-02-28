@@ -19,15 +19,13 @@
     Created
     = @course.created_at.strftime("%m/%Y")
     .row
-    .far.fa-clock
-    Last updated
-    = @course.updated_at.strftime("%m/%Y")
-    .row
     .fa.fa-globe-africa
     = @course.language
     .row
     .fa.fa-signal
     = @course.level
+    .row
+    =@course.short_description
     .row
   .card-footer
     - if @course.price > 0
