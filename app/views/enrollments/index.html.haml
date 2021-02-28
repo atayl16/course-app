@@ -49,7 +49,7 @@
           = sort_link(@q, :rating)
         %th
           .text-warning.fa.fa-comment
-          Review
+          Rating
         %th Progress
         %th Certificate
         %th
@@ -73,10 +73,10 @@
           %td= enrollment.review
           %td= number_to_percentage(enrollment.course.progress(enrollment.user), precision: 0)
           %td= link_to 'PDF', certificate_enrollment_path(enrollment, format: :pdf)
-          %td= link_to 'See Review', enrollment
+          %td= link_to 'See Rating', enrollment
           %td
             - if policy(enrollment).edit?
-              = link_to 'Add Review', edit_enrollment_path(enrollment)
+              = link_to 'Add Rating', edit_enrollment_path(enrollment)
           %td
             - if policy(enrollment).destroy?
               = link_to 'Delete Enrollment', enrollment, method: :delete, data: { confirm: 'Are you sure?' }
