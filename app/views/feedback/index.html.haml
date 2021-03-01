@@ -1,0 +1,32 @@
+- content_for :title do
+  Islam4Kids
+  \|
+  Feedback
+
+%h3
+  .text-center
+    Feedback
+%p
+%br
+.table-responsive
+  %table.table.table-bordered.table-striped.table-sm.table-hover
+    %thead
+    %tr
+      %th id
+      %th= :user_id
+      %th= :user_email
+      %th= :content
+      %th= :reviewed
+      %th= :responded
+    %tbody
+      - @feedback.each do |feedback|
+        %tr
+          %th feedback.id
+          %th= feedback.user_id
+          %th= feedback.user.email
+          %th= feedback.content
+          %th= feedback.reviewed
+          %th= feedback.responded
+
+%p
+%br

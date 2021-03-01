@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users, controllers: {registrations: "users/registrations",
                                    omniauth_callbacks: "users/omniauth_callbacks"}
 
@@ -14,6 +15,11 @@ Rails.application.routes.draw do
   get "teach", to: "static_pages#become_teacher"
 
   get '/sitemap.xml', to: redirect("https://atayl16-course-app.s3.amazonaws.com/sitemap.xml")
+
+  get    '/feedback/new',    to: 'feedback#new'
+  post   '/feedback',    to: 'feedback#create'
+  delete '/feedback',   to: 'feedback#destroy'
+  get    '/feedback/index',    to: 'feedback#index'
 
   resources :enrollments do
     get :teaching, on: :collection
