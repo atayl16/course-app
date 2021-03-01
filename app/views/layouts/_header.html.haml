@@ -55,6 +55,9 @@
               = link_to analytics_path, class: "dropdown-item #{'active' if current_page?(analytics_path)}" do
                 .fa.fa-chart-line
                 Analytics
+              = link_to feedback_index_path, class: "dropdown-item #{'active' if current_page?(feedback_index_path)}" do
+                .fa.fa-comment
+                Feedback
         - if current_user.has_role?(:teacher)
           %li.nav-item.dropdown
             %a#teacherDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
