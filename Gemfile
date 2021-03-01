@@ -64,3 +64,4 @@ gem "cocoon"
 gem "stripe"
 gem 'sitemap_generator'
 gem 'tinymce-rails'
+gem 'newrelic_rpm'
