@@ -65,3 +65,5 @@ gem "stripe"
 gem 'sitemap_generator'
 gem 'tinymce-rails'
 gem 'newrelic_rpm'
+gem "sentry-ruby"
+gem "sentry-rails"
