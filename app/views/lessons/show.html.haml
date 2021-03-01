@@ -82,46 +82,7 @@
           = @lesson.course.title
         .row
         = render 'courses/progress', course: @lesson.course
-    -# %br
-    -# .list-group-item
-    -#   %h5 Current Chapter
-    -# #accordion
-    -#   .list-group#scrollable
-    -#     .panel.panel-default
-    -#       .list-group-item.shadow
-    -#         %a.collapsed{"aria-controls" => "collapseChapter", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseChapter", :role => "button"}
-    -#           = render 'chapters/chapter_lesson', chapter: @lesson.chapter
-    -#           .panel-collapse.collapse.show{:id => "collapseChapter"}
-    -#             - @lessons.each do |lesson|
-    -#               .panel-body
-    -#                 - if lesson.eql?(@lesson)
-    -#                   %li.list-group-item.list-group-item-success
-    -#                     = render 'lessons/lesson_student', lesson: lesson
-    -#                 - else
-    -#                   %li.list-group-item.list-group-item-secondary
-    -#                     = render 'lessons/lesson_student', lesson: lesson
-    -# %br
-    -# .list-group-item
-    -#   %h5 All Chapters
-    -# #accordion
-    -#   .list-group#scrollable
-    -#     - @chapters.each do |chapter|
-    -#       .panel.panel-default
-    -#         .list-group-item.shadow
-    -#           %a.collapsed{"aria-controls" => "collapse#{chapter.id}", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse#{chapter.id}", :role => "button"}
-    -#             = render 'chapters/chapter_lesson', chapter: chapter
-    -#             .panel-collapse.collapse{:id => "collapse#{chapter.id}"}
-    -#               - chapter.lessons.rank(:row_order).each do |lesson|
-    -#                 .panel-body
-    -#                   - if lesson.eql?(@lesson)
-    -#                     %li.list-group-item.list-group-item-success
-    -#                       = render 'lessons/lesson_student', lesson: lesson
-    -#                   - else
-    -#                     %li.list-group-item.list-group-item-secondary
-    -#                       = render 'lessons/lesson_student', lesson: lesson
-    -#           - if @lesson.chapter_id == chapter.id
-    -#             .panel-collapse.collapse.show{:id => "collapse#{chapter.id}"}
-
+    %br
 
     #accordion
     .list-group#scrollable

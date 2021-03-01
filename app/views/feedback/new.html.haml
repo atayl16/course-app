@@ -1,9 +1,11 @@
-= simple_form_for @feedback, url: feedback_path, method: :post do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-
-  .form-inputs
-    = f.input :content, :required => true
-
-  .form-actions
-    = f.button :submit
+- content_for :title do
+  Feedback
+.card.shadow
+  .card-header
+    %h3
+      .fa.fa-comment
+      Got Feedback?
+  .card-body
+    = render 'form'
+  .card-footer
+    = link_to 'Back to Home', "/"

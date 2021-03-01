@@ -19,6 +19,6 @@
         .row
         = link_to 'FAQ', faq_path, class: "#{'active font-weight-bold' if current_page?(faq_path)}"
         .row
-        -# = link_to 'Feedback?', new_feedback_path, class: "#{'active font-weight-bold' if current_page?(new_feedback_path)}"
+        = link_to 'Feedback?', feedback_new_path, class: "#{'active font-weight-bold' if current_page?(feedback_new_path)}"
 
   %br/
